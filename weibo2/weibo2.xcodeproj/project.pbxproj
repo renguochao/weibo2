@@ -78,8 +78,6 @@
 			children = (
 				D95647701B79890B00C3B9B7 /* AppDelegate.h */,
 				D95647711B79890B00C3B9B7 /* AppDelegate.m */,
-				D95647791B79890B00C3B9B7 /* Images.xcassets */,
-				D956477B1B79890B00C3B9B7 /* LaunchScreen.xib */,
 				D956476C1B79890B00C3B9B7 /* Supporting Files */,
 			);
 			path = weibo2;
@@ -88,6 +86,8 @@
 		D956476C1B79890B00C3B9B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D95647791B79890B00C3B9B7 /* Images.xcassets */,
+				D956477B1B79890B00C3B9B7 /* LaunchScreen.xib */,
 				D956476D1B79890B00C3B9B7 /* Info.plist */,
 				D956476E1B79890B00C3B9B7 /* main.m */,
 			);
