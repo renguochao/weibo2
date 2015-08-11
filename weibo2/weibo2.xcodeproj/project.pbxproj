@@ -12,6 +12,11 @@
 		D956477A1B79890B00C3B9B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95647791B79890B00C3B9B7 /* Images.xcassets */; };
 		D956477D1B79890B00C3B9B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D956477B1B79890B00C3B9B7 /* LaunchScreen.xib */; };
 		D95647891B79890B00C3B9B7 /* weibo2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D95647881B79890B00C3B9B7 /* weibo2Tests.m */; };
+		D95647941B799BE600C3B9B7 /* XXRTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95647931B799BE600C3B9B7 /* XXRTabBarViewController.m */; };
+		D95647971B799C6F00C3B9B7 /* XXRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95647961B799C6F00C3B9B7 /* XXRHomeViewController.m */; };
+		D956479A1B799C8000C3B9B7 /* XXRMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95647991B799C8000C3B9B7 /* XXRMessageViewController.m */; };
+		D956479D1B799C9300C3B9B7 /* XXRDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D956479C1B799C9300C3B9B7 /* XXRDiscoverViewController.m */; };
+		D95647A01B799CA700C3B9B7 /* XXRMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D956479F1B799CA700C3B9B7 /* XXRMeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +40,16 @@
 		D95647821B79890B00C3B9B7 /* weibo2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weibo2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95647871B79890B00C3B9B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D95647881B79890B00C3B9B7 /* weibo2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = weibo2Tests.m; sourceTree = "<group>"; };
+		D95647921B799BE600C3B9B7 /* XXRTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRTabBarViewController.h; sourceTree = "<group>"; };
+		D95647931B799BE600C3B9B7 /* XXRTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRTabBarViewController.m; sourceTree = "<group>"; };
+		D95647951B799C6F00C3B9B7 /* XXRHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRHomeViewController.h; sourceTree = "<group>"; };
+		D95647961B799C6F00C3B9B7 /* XXRHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRHomeViewController.m; sourceTree = "<group>"; };
+		D95647981B799C8000C3B9B7 /* XXRMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRMessageViewController.h; sourceTree = "<group>"; };
+		D95647991B799C8000C3B9B7 /* XXRMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRMessageViewController.m; sourceTree = "<group>"; };
+		D956479B1B799C9300C3B9B7 /* XXRDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRDiscoverViewController.h; sourceTree = "<group>"; };
+		D956479C1B799C9300C3B9B7 /* XXRDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRDiscoverViewController.m; sourceTree = "<group>"; };
+		D956479E1B799CA700C3B9B7 /* XXRMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRMeViewController.h; sourceTree = "<group>"; };
+		D956479F1B799CA700C3B9B7 /* XXRMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRMeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +93,17 @@
 			children = (
 				D95647701B79890B00C3B9B7 /* AppDelegate.h */,
 				D95647711B79890B00C3B9B7 /* AppDelegate.m */,
+				D95647921B799BE600C3B9B7 /* XXRTabBarViewController.h */,
+				D95647931B799BE600C3B9B7 /* XXRTabBarViewController.m */,
 				D956476C1B79890B00C3B9B7 /* Supporting Files */,
+				D95647951B799C6F00C3B9B7 /* XXRHomeViewController.h */,
+				D95647961B799C6F00C3B9B7 /* XXRHomeViewController.m */,
+				D95647981B799C8000C3B9B7 /* XXRMessageViewController.h */,
+				D95647991B799C8000C3B9B7 /* XXRMessageViewController.m */,
+				D956479B1B799C9300C3B9B7 /* XXRDiscoverViewController.h */,
+				D956479C1B799C9300C3B9B7 /* XXRDiscoverViewController.m */,
+				D956479E1B799CA700C3B9B7 /* XXRMeViewController.h */,
+				D956479F1B799CA700C3B9B7 /* XXRMeViewController.m */,
 			);
 			path = weibo2;
 			sourceTree = "<group>";
@@ -210,8 +235,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D956479D1B799C9300C3B9B7 /* XXRDiscoverViewController.m in Sources */,
+				D95647971B799C6F00C3B9B7 /* XXRHomeViewController.m in Sources */,
+				D95647A01B799CA700C3B9B7 /* XXRMeViewController.m in Sources */,
 				D95647721B79890B00C3B9B7 /* AppDelegate.m in Sources */,
 				D956476F1B79890B00C3B9B7 /* main.m in Sources */,
+				D956479A1B799C8000C3B9B7 /* XXRMessageViewController.m in Sources */,
+				D95647941B799BE600C3B9B7 /* XXRTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

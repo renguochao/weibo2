@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "XXRTabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    // 显示状态栏
+    application.statusBarHidden = NO;
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [[XXRTabBarViewController alloc] init];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
