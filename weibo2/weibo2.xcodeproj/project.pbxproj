@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D956476F1B79890B00C3B9B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D956476E1B79890B00C3B9B7 /* main.m */; };
-		D95647721B79890B00C3B9B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D95647711B79890B00C3B9B7 /* AppDelegate.m */; };
+		D936E9281B79B7AB0024DE7E /* XXRDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E90F1B79B7AB0024DE7E /* XXRDiscoverViewController.m */; };
+		D936E9291B79B7AB0024DE7E /* XXRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9151B79B7AB0024DE7E /* XXRHomeViewController.m */; };
+		D936E92A1B79B7AB0024DE7E /* XXRMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E91F1B79B7AB0024DE7E /* XXRMeViewController.m */; };
+		D936E92B1B79B7AB0024DE7E /* XXRMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9251B79B7AB0024DE7E /* XXRMessageViewController.m */; };
+		D936E9361B79B8200024DE7E /* XXRTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9311B79B8200024DE7E /* XXRTabBarViewController.m */; };
+		D936E9371B79B8200024DE7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9341B79B8200024DE7E /* AppDelegate.m */; };
+		D936E9381B79B8200024DE7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9351B79B8200024DE7E /* main.m */; };
 		D956477A1B79890B00C3B9B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95647791B79890B00C3B9B7 /* Images.xcassets */; };
 		D956477D1B79890B00C3B9B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D956477B1B79890B00C3B9B7 /* LaunchScreen.xib */; };
 		D95647891B79890B00C3B9B7 /* weibo2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D95647881B79890B00C3B9B7 /* weibo2Tests.m */; };
-		D95647941B799BE600C3B9B7 /* XXRTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95647931B799BE600C3B9B7 /* XXRTabBarViewController.m */; };
-		D95647971B799C6F00C3B9B7 /* XXRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95647961B799C6F00C3B9B7 /* XXRHomeViewController.m */; };
-		D956479A1B799C8000C3B9B7 /* XXRMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95647991B799C8000C3B9B7 /* XXRMessageViewController.m */; };
-		D956479D1B799C9300C3B9B7 /* XXRDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D956479C1B799C9300C3B9B7 /* XXRDiscoverViewController.m */; };
-		D95647A01B799CA700C3B9B7 /* XXRMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D956479F1B799CA700C3B9B7 /* XXRMeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,26 +30,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D936E90E1B79B7AB0024DE7E /* XXRDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRDiscoverViewController.h; sourceTree = "<group>"; };
+		D936E90F1B79B7AB0024DE7E /* XXRDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRDiscoverViewController.m; sourceTree = "<group>"; };
+		D936E9141B79B7AB0024DE7E /* XXRHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRHomeViewController.h; sourceTree = "<group>"; };
+		D936E9151B79B7AB0024DE7E /* XXRHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRHomeViewController.m; sourceTree = "<group>"; };
+		D936E91E1B79B7AB0024DE7E /* XXRMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRMeViewController.h; sourceTree = "<group>"; };
+		D936E91F1B79B7AB0024DE7E /* XXRMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRMeViewController.m; sourceTree = "<group>"; };
+		D936E9241B79B7AB0024DE7E /* XXRMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRMessageViewController.h; sourceTree = "<group>"; };
+		D936E9251B79B7AB0024DE7E /* XXRMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRMessageViewController.m; sourceTree = "<group>"; };
+		D936E9301B79B8200024DE7E /* XXRTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRTabBarViewController.h; sourceTree = "<group>"; };
+		D936E9311B79B8200024DE7E /* XXRTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRTabBarViewController.m; sourceTree = "<group>"; };
+		D936E9331B79B8200024DE7E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D936E9341B79B8200024DE7E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D936E9351B79B8200024DE7E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D95647691B79890B00C3B9B7 /* weibo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D956476D1B79890B00C3B9B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D956476E1B79890B00C3B9B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D95647701B79890B00C3B9B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D95647711B79890B00C3B9B7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D95647791B79890B00C3B9B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D956477C1B79890B00C3B9B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D95647821B79890B00C3B9B7 /* weibo2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weibo2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95647871B79890B00C3B9B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D95647881B79890B00C3B9B7 /* weibo2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = weibo2Tests.m; sourceTree = "<group>"; };
-		D95647921B799BE600C3B9B7 /* XXRTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRTabBarViewController.h; sourceTree = "<group>"; };
-		D95647931B799BE600C3B9B7 /* XXRTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRTabBarViewController.m; sourceTree = "<group>"; };
-		D95647951B799C6F00C3B9B7 /* XXRHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRHomeViewController.h; sourceTree = "<group>"; };
-		D95647961B799C6F00C3B9B7 /* XXRHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRHomeViewController.m; sourceTree = "<group>"; };
-		D95647981B799C8000C3B9B7 /* XXRMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRMessageViewController.h; sourceTree = "<group>"; };
-		D95647991B799C8000C3B9B7 /* XXRMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRMessageViewController.m; sourceTree = "<group>"; };
-		D956479B1B799C9300C3B9B7 /* XXRDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRDiscoverViewController.h; sourceTree = "<group>"; };
-		D956479C1B799C9300C3B9B7 /* XXRDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRDiscoverViewController.m; sourceTree = "<group>"; };
-		D956479E1B799CA700C3B9B7 /* XXRMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRMeViewController.h; sourceTree = "<group>"; };
-		D956479F1B799CA700C3B9B7 /* XXRMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRMeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +70,233 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D936E9091B79B4D10024DE7E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D936E92C1B79B8200024DE7E /* Main */,
+				D936E9321B79B8200024DE7E /* Other */,
+				D936E90C1B79B7AB0024DE7E /* Discover */,
+				D936E9121B79B7AB0024DE7E /* Home */,
+				D936E9181B79B7AB0024DE7E /* Main */,
+				D936E91C1B79B7AB0024DE7E /* Me */,
+				D936E9221B79B7AB0024DE7E /* Message */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		D936E90C1B79B7AB0024DE7E /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				D936E90D1B79B7AB0024DE7E /* Controller */,
+				D936E9101B79B7AB0024DE7E /* Model */,
+				D936E9111B79B7AB0024DE7E /* View */,
+			);
+			name = Discover;
+			path = Classes/Discover;
+			sourceTree = "<group>";
+		};
+		D936E90D1B79B7AB0024DE7E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D936E90E1B79B7AB0024DE7E /* XXRDiscoverViewController.h */,
+				D936E90F1B79B7AB0024DE7E /* XXRDiscoverViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D936E9101B79B7AB0024DE7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D936E9111B79B7AB0024DE7E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D936E9121B79B7AB0024DE7E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D936E9131B79B7AB0024DE7E /* Controller */,
+				D936E9161B79B7AB0024DE7E /* Model */,
+				D936E9171B79B7AB0024DE7E /* View */,
+			);
+			name = Home;
+			path = Classes/Home;
+			sourceTree = "<group>";
+		};
+		D936E9131B79B7AB0024DE7E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D936E9141B79B7AB0024DE7E /* XXRHomeViewController.h */,
+				D936E9151B79B7AB0024DE7E /* XXRHomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D936E9161B79B7AB0024DE7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D936E9171B79B7AB0024DE7E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D936E9181B79B7AB0024DE7E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D936E9191B79B7AB0024DE7E /* Controller */,
+				D936E91A1B79B7AB0024DE7E /* Model */,
+				D936E91B1B79B7AB0024DE7E /* View */,
+			);
+			name = Main;
+			path = Classes/Main;
+			sourceTree = "<group>";
+		};
+		D936E9191B79B7AB0024DE7E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D936E91A1B79B7AB0024DE7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D936E91B1B79B7AB0024DE7E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D936E91C1B79B7AB0024DE7E /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				D936E91D1B79B7AB0024DE7E /* Controller */,
+				D936E9201B79B7AB0024DE7E /* Model */,
+				D936E9211B79B7AB0024DE7E /* View */,
+			);
+			name = Me;
+			path = Classes/Me;
+			sourceTree = "<group>";
+		};
+		D936E91D1B79B7AB0024DE7E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D936E91E1B79B7AB0024DE7E /* XXRMeViewController.h */,
+				D936E91F1B79B7AB0024DE7E /* XXRMeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D936E9201B79B7AB0024DE7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D936E9211B79B7AB0024DE7E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D936E9221B79B7AB0024DE7E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				D936E9231B79B7AB0024DE7E /* Controller */,
+				D936E9261B79B7AB0024DE7E /* Model */,
+				D936E9271B79B7AB0024DE7E /* View */,
+			);
+			name = Message;
+			path = Classes/Message;
+			sourceTree = "<group>";
+		};
+		D936E9231B79B7AB0024DE7E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D936E9241B79B7AB0024DE7E /* XXRMessageViewController.h */,
+				D936E9251B79B7AB0024DE7E /* XXRMessageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D936E9261B79B7AB0024DE7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D936E9271B79B7AB0024DE7E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D936E92C1B79B8200024DE7E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D936E92D1B79B8200024DE7E /* Controller */,
+				D936E92E1B79B8200024DE7E /* Model */,
+				D936E92F1B79B8200024DE7E /* View */,
+				D936E9301B79B8200024DE7E /* XXRTabBarViewController.h */,
+				D936E9311B79B8200024DE7E /* XXRTabBarViewController.m */,
+			);
+			name = Main;
+			path = Classes/Main;
+			sourceTree = "<group>";
+		};
+		D936E92D1B79B8200024DE7E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D936E92E1B79B8200024DE7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D936E92F1B79B8200024DE7E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D936E9321B79B8200024DE7E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				D936E9331B79B8200024DE7E /* AppDelegate.h */,
+				D936E9341B79B8200024DE7E /* AppDelegate.m */,
+				D936E9351B79B8200024DE7E /* main.m */,
+			);
+			name = Other;
+			path = Classes/Other;
+			sourceTree = "<group>";
+		};
 		D95647601B79890B00C3B9B7 = {
 			isa = PBXGroup;
 			children = (
@@ -91,19 +318,8 @@
 		D956476B1B79890B00C3B9B7 /* weibo2 */ = {
 			isa = PBXGroup;
 			children = (
-				D95647701B79890B00C3B9B7 /* AppDelegate.h */,
-				D95647711B79890B00C3B9B7 /* AppDelegate.m */,
-				D95647921B799BE600C3B9B7 /* XXRTabBarViewController.h */,
-				D95647931B799BE600C3B9B7 /* XXRTabBarViewController.m */,
+				D936E9091B79B4D10024DE7E /* Classes */,
 				D956476C1B79890B00C3B9B7 /* Supporting Files */,
-				D95647951B799C6F00C3B9B7 /* XXRHomeViewController.h */,
-				D95647961B799C6F00C3B9B7 /* XXRHomeViewController.m */,
-				D95647981B799C8000C3B9B7 /* XXRMessageViewController.h */,
-				D95647991B799C8000C3B9B7 /* XXRMessageViewController.m */,
-				D956479B1B799C9300C3B9B7 /* XXRDiscoverViewController.h */,
-				D956479C1B799C9300C3B9B7 /* XXRDiscoverViewController.m */,
-				D956479E1B799CA700C3B9B7 /* XXRMeViewController.h */,
-				D956479F1B799CA700C3B9B7 /* XXRMeViewController.m */,
 			);
 			path = weibo2;
 			sourceTree = "<group>";
@@ -114,7 +330,6 @@
 				D95647791B79890B00C3B9B7 /* Images.xcassets */,
 				D956477B1B79890B00C3B9B7 /* LaunchScreen.xib */,
 				D956476D1B79890B00C3B9B7 /* Info.plist */,
-				D956476E1B79890B00C3B9B7 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,13 +450,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D956479D1B799C9300C3B9B7 /* XXRDiscoverViewController.m in Sources */,
-				D95647971B799C6F00C3B9B7 /* XXRHomeViewController.m in Sources */,
-				D95647A01B799CA700C3B9B7 /* XXRMeViewController.m in Sources */,
-				D95647721B79890B00C3B9B7 /* AppDelegate.m in Sources */,
-				D956476F1B79890B00C3B9B7 /* main.m in Sources */,
-				D956479A1B799C8000C3B9B7 /* XXRMessageViewController.m in Sources */,
-				D95647941B799BE600C3B9B7 /* XXRTabBarViewController.m in Sources */,
+				D936E92B1B79B7AB0024DE7E /* XXRMessageViewController.m in Sources */,
+				D936E9361B79B8200024DE7E /* XXRTabBarViewController.m in Sources */,
+				D936E9371B79B8200024DE7E /* AppDelegate.m in Sources */,
+				D936E92A1B79B7AB0024DE7E /* XXRMeViewController.m in Sources */,
+				D936E9291B79B7AB0024DE7E /* XXRHomeViewController.m in Sources */,
+				D936E9381B79B8200024DE7E /* main.m in Sources */,
+				D936E9281B79B7AB0024DE7E /* XXRDiscoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +645,7 @@
 				D956478E1B79890B00C3B9B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D956478F1B79890B00C3B9B7 /* Build configuration list for PBXNativeTarget "weibo2Tests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +654,7 @@
 				D95647911B79890B00C3B9B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
