@@ -11,9 +11,11 @@
 		D936E9291B79B7AB0024DE7E /* XXRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9151B79B7AB0024DE7E /* XXRHomeViewController.m */; };
 		D936E92A1B79B7AB0024DE7E /* XXRMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E91F1B79B7AB0024DE7E /* XXRMeViewController.m */; };
 		D936E92B1B79B7AB0024DE7E /* XXRMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9251B79B7AB0024DE7E /* XXRMessageViewController.m */; };
-		D936E9361B79B8200024DE7E /* XXRTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9311B79B8200024DE7E /* XXRTabBarViewController.m */; };
 		D936E9371B79B8200024DE7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9341B79B8200024DE7E /* AppDelegate.m */; };
 		D936E9381B79B8200024DE7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9351B79B8200024DE7E /* main.m */; };
+		D936E93B1B79B8B30024DE7E /* XXRTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E93A1B79B8B30024DE7E /* XXRTabBarViewController.m */; };
+		D936E9401B79CE9B0024DE7E /* UIImage+XXR.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E93F1B79CE9B0024DE7E /* UIImage+XXR.m */; };
+		D936E9431B79D48F0024DE7E /* XXRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9421B79D48F0024DE7E /* XXRTabBar.m */; };
 		D956477A1B79890B00C3B9B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95647791B79890B00C3B9B7 /* Images.xcassets */; };
 		D956477D1B79890B00C3B9B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D956477B1B79890B00C3B9B7 /* LaunchScreen.xib */; };
 		D95647891B79890B00C3B9B7 /* weibo2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D95647881B79890B00C3B9B7 /* weibo2Tests.m */; };
@@ -38,11 +40,16 @@
 		D936E91F1B79B7AB0024DE7E /* XXRMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRMeViewController.m; sourceTree = "<group>"; };
 		D936E9241B79B7AB0024DE7E /* XXRMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRMessageViewController.h; sourceTree = "<group>"; };
 		D936E9251B79B7AB0024DE7E /* XXRMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRMessageViewController.m; sourceTree = "<group>"; };
-		D936E9301B79B8200024DE7E /* XXRTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRTabBarViewController.h; sourceTree = "<group>"; };
-		D936E9311B79B8200024DE7E /* XXRTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRTabBarViewController.m; sourceTree = "<group>"; };
 		D936E9331B79B8200024DE7E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D936E9341B79B8200024DE7E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D936E9351B79B8200024DE7E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D936E9391B79B8B30024DE7E /* XXRTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRTabBarViewController.h; sourceTree = "<group>"; };
+		D936E93A1B79B8B30024DE7E /* XXRTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRTabBarViewController.m; sourceTree = "<group>"; };
+		D936E93C1B79B9D10024DE7E /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		D936E93E1B79CE9B0024DE7E /* UIImage+XXR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XXR.h"; sourceTree = "<group>"; };
+		D936E93F1B79CE9B0024DE7E /* UIImage+XXR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XXR.m"; sourceTree = "<group>"; };
+		D936E9411B79D48F0024DE7E /* XXRTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRTabBar.h; sourceTree = "<group>"; };
+		D936E9421B79D48F0024DE7E /* XXRTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRTabBar.m; sourceTree = "<group>"; };
 		D95647691B79890B00C3B9B7 /* weibo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D956476D1B79890B00C3B9B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D95647791B79890B00C3B9B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -74,12 +81,12 @@
 			isa = PBXGroup;
 			children = (
 				D936E92C1B79B8200024DE7E /* Main */,
-				D936E9321B79B8200024DE7E /* Other */,
 				D936E90C1B79B7AB0024DE7E /* Discover */,
 				D936E9121B79B7AB0024DE7E /* Home */,
 				D936E9181B79B7AB0024DE7E /* Main */,
 				D936E91C1B79B7AB0024DE7E /* Me */,
 				D936E9221B79B7AB0024DE7E /* Message */,
+				D936E9321B79B8200024DE7E /* Other */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -258,8 +265,6 @@
 				D936E92D1B79B8200024DE7E /* Controller */,
 				D936E92E1B79B8200024DE7E /* Model */,
 				D936E92F1B79B8200024DE7E /* View */,
-				D936E9301B79B8200024DE7E /* XXRTabBarViewController.h */,
-				D936E9311B79B8200024DE7E /* XXRTabBarViewController.m */,
 			);
 			name = Main;
 			path = Classes/Main;
@@ -268,6 +273,8 @@
 		D936E92D1B79B8200024DE7E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D936E9391B79B8B30024DE7E /* XXRTabBarViewController.h */,
+				D936E93A1B79B8B30024DE7E /* XXRTabBarViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,6 +289,8 @@
 		D936E92F1B79B8200024DE7E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D936E9411B79D48F0024DE7E /* XXRTabBar.h */,
+				D936E9421B79D48F0024DE7E /* XXRTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,12 +298,23 @@
 		D936E9321B79B8200024DE7E /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				D936E93D1B79CE710024DE7E /* Category */,
 				D936E9331B79B8200024DE7E /* AppDelegate.h */,
 				D936E9341B79B8200024DE7E /* AppDelegate.m */,
 				D936E9351B79B8200024DE7E /* main.m */,
+				D936E93C1B79B9D10024DE7E /* Common.h */,
 			);
 			name = Other;
 			path = Classes/Other;
+			sourceTree = "<group>";
+		};
+		D936E93D1B79CE710024DE7E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D936E93E1B79CE9B0024DE7E /* UIImage+XXR.h */,
+				D936E93F1B79CE9B0024DE7E /* UIImage+XXR.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		D95647601B79890B00C3B9B7 = {
@@ -451,11 +471,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D936E92B1B79B7AB0024DE7E /* XXRMessageViewController.m in Sources */,
-				D936E9361B79B8200024DE7E /* XXRTabBarViewController.m in Sources */,
+				D936E9431B79D48F0024DE7E /* XXRTabBar.m in Sources */,
 				D936E9371B79B8200024DE7E /* AppDelegate.m in Sources */,
 				D936E92A1B79B7AB0024DE7E /* XXRMeViewController.m in Sources */,
 				D936E9291B79B7AB0024DE7E /* XXRHomeViewController.m in Sources */,
+				D936E93B1B79B8B30024DE7E /* XXRTabBarViewController.m in Sources */,
 				D936E9381B79B8200024DE7E /* main.m in Sources */,
+				D936E9401B79CE9B0024DE7E /* UIImage+XXR.m in Sources */,
 				D936E9281B79B7AB0024DE7E /* XXRDiscoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
