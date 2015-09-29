@@ -11,13 +11,14 @@
 #import "XXRDiscoverViewController.h"
 #import "XXRMessageViewController.h"
 #import "XXRMeViewController.h"
+#import "XXRNavigationController.h"
 
 #import "XXRTabBar.h"
 
 #import "UIImage+XXR.h"
 #import "Common.h"
 
-@interface XXRTabBarViewController ()
+@interface XXRTabBarViewController ()<XXRTabBarDelegate>
 /**
  *  自定义的tabbar
  */
@@ -36,34 +37,54 @@
     [self setupAllChildViewControllers];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // 删除系统自动生成的UITabBarButton
+    for (UIView *child in self.tabBar.subviews) {
+        if ([child isKindOfClass:[UIControl class]]) {
+            [child removeFromSuperview];
+        }
+    }
+}
+
 /**
  * 初始化TabBar
  */
 - (void)setupTabbar {
     XXRTabBar *customTabBar = [[XXRTabBar alloc] init];
-    customTabBar.backgroundColor = [UIColor redColor];
+    customTabBar.delegate = self;
     customTabBar.frame = self.tabBar.bounds;
     [self.tabBar addSubview:customTabBar];
     
     self.customTabBar = customTabBar;
 }
 
+
+- (void)tabBar:(XXRTabBar *)tabBar didSelectButtonFrom:(int)from to:(int)to {
+    self.selectedIndex = to;
+}
+
 - (void)setupAllChildViewControllers {
     // 1.首页
     XXRHomeViewController *home = [[XXRHomeViewController alloc] init];
-    [self setupChildViewController:home title:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home_selected"];
+    home.tabBarItem.badgeValue = @"99";
+    [self setupChildViewController:home title:@"首页" imageName:@"tabbar_home_os7" selectedImageName:@"tabbar_home_selected"];
     
     // 2.消息
     XXRMessageViewController *message = [[XXRMessageViewController alloc] init];
-    [self setupChildViewController:message title:@"消息" imageName:@"tabbar_message_center" selectedImageName:@"tabbar_message_center_selected"];
+    message.tabBarItem.badgeValue = @"22";
+    [self setupChildViewController:message title:@"消息" imageName:@"tabbar_message_center_os7" selectedImageName:@"tabbar_message_center_selected_os7"];
     
     // 3.广场
     XXRDiscoverViewController *discover = [[XXRDiscoverViewController alloc] init];
-    [self setupChildViewController:discover title:@"广场" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discover_selected"];
+    discover.tabBarItem.badgeValue = @"1";
+    [self setupChildViewController:discover title:@"广场" imageName:@"tabbar_discover_os7" selectedImageName:@"tabbar_discover_selected_os7"];
     
     // 4.我
     XXRMeViewController *me = [[XXRMeViewController alloc] init];
-    [self setupChildViewController:me title:@"我" imageName:@"tabbar_profile" selectedImageName:@"tabbar_profile_selected"];
+    [self setupChildViewController:me title:@"我" imageName:@"tabbar_profile_os7" selectedImageName:@"tabbar_profile_selected_os7"];
+    
 }
 
 /**
@@ -91,9 +112,8 @@
         childVc.tabBarItem.selectedImage = selectedImage;
     }
     
-    
     // 2.包装导航控制器
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
+    XXRNavigationController *nav = [[XXRNavigationController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
     
     // 3.添加tabbar内部的按钮
