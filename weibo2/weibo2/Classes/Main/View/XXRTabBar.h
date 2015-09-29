@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class XXRTabBar;
+@protocol XXRTabBarDelegate <NSObject>
+
+@optional
+- (void)tabBar:(XXRTabBar *)tabBar didSelectButtonFrom:(int)from to:(int)to;
+
+@end
+
 @interface XXRTabBar : UIView
 - (void)addTabBarButtonWithItem:(UITabBarItem *)item;
+
+@property (nonatomic, weak) id<XXRTabBarDelegate> delegate;
 @end
