@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D92B631E1BB2F39400BAD59C /* XXRBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D92B631D1BB2F39400BAD59C /* XXRBadgeButton.m */; settings = {ASSET_TAGS = (); }; };
+		D936AE511BB1A6CC00D96204 /* XXRTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D936AE501BB1A6CC00D96204 /* XXRTabBarButton.m */; settings = {ASSET_TAGS = (); }; };
 		D936E9281B79B7AB0024DE7E /* XXRDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E90F1B79B7AB0024DE7E /* XXRDiscoverViewController.m */; };
 		D936E9291B79B7AB0024DE7E /* XXRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9151B79B7AB0024DE7E /* XXRHomeViewController.m */; };
 		D936E92A1B79B7AB0024DE7E /* XXRMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E91F1B79B7AB0024DE7E /* XXRMeViewController.m */; };
@@ -19,6 +21,8 @@
 		D956477A1B79890B00C3B9B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95647791B79890B00C3B9B7 /* Images.xcassets */; };
 		D956477D1B79890B00C3B9B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D956477B1B79890B00C3B9B7 /* LaunchScreen.xib */; };
 		D95647891B79890B00C3B9B7 /* weibo2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D95647881B79890B00C3B9B7 /* weibo2Tests.m */; };
+		D985F14F1BB1B052006688EB /* UIColor+RCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D985F14E1BB1B052006688EB /* UIColor+RCColor.m */; settings = {ASSET_TAGS = (); }; };
+		D9AB76A21BB8419300A1AED1 /* XXRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AB76A11BB8419300A1AED1 /* XXRNavigationController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D92B631C1BB2F39400BAD59C /* XXRBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRBadgeButton.h; sourceTree = "<group>"; };
+		D92B631D1BB2F39400BAD59C /* XXRBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRBadgeButton.m; sourceTree = "<group>"; };
+		D936AE4F1BB1A6CC00D96204 /* XXRTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRTabBarButton.h; sourceTree = "<group>"; };
+		D936AE501BB1A6CC00D96204 /* XXRTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRTabBarButton.m; sourceTree = "<group>"; };
 		D936E90E1B79B7AB0024DE7E /* XXRDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRDiscoverViewController.h; sourceTree = "<group>"; };
 		D936E90F1B79B7AB0024DE7E /* XXRDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRDiscoverViewController.m; sourceTree = "<group>"; };
 		D936E9141B79B7AB0024DE7E /* XXRHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRHomeViewController.h; sourceTree = "<group>"; };
@@ -57,6 +65,10 @@
 		D95647821B79890B00C3B9B7 /* weibo2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weibo2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95647871B79890B00C3B9B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D95647881B79890B00C3B9B7 /* weibo2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = weibo2Tests.m; sourceTree = "<group>"; };
+		D985F14D1BB1B052006688EB /* UIColor+RCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RCColor.h"; sourceTree = "<group>"; };
+		D985F14E1BB1B052006688EB /* UIColor+RCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RCColor.m"; sourceTree = "<group>"; };
+		D9AB76A01BB8419300A1AED1 /* XXRNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRNavigationController.h; sourceTree = "<group>"; };
+		D9AB76A11BB8419300A1AED1 /* XXRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +95,6 @@
 				D936E92C1B79B8200024DE7E /* Main */,
 				D936E90C1B79B7AB0024DE7E /* Discover */,
 				D936E9121B79B7AB0024DE7E /* Home */,
-				D936E9181B79B7AB0024DE7E /* Main */,
 				D936E91C1B79B7AB0024DE7E /* Me */,
 				D936E9221B79B7AB0024DE7E /* Message */,
 				D936E9321B79B8200024DE7E /* Other */,
@@ -153,38 +164,6 @@
 			sourceTree = "<group>";
 		};
 		D936E9171B79B7AB0024DE7E /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D936E9181B79B7AB0024DE7E /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				D936E9191B79B7AB0024DE7E /* Controller */,
-				D936E91A1B79B7AB0024DE7E /* Model */,
-				D936E91B1B79B7AB0024DE7E /* View */,
-			);
-			name = Main;
-			path = Classes/Main;
-			sourceTree = "<group>";
-		};
-		D936E9191B79B7AB0024DE7E /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		D936E91A1B79B7AB0024DE7E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D936E91B1B79B7AB0024DE7E /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -273,6 +252,8 @@
 		D936E92D1B79B8200024DE7E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D9AB76A01BB8419300A1AED1 /* XXRNavigationController.h */,
+				D9AB76A11BB8419300A1AED1 /* XXRNavigationController.m */,
 				D936E9391B79B8B30024DE7E /* XXRTabBarViewController.h */,
 				D936E93A1B79B8B30024DE7E /* XXRTabBarViewController.m */,
 			);
@@ -291,6 +272,10 @@
 			children = (
 				D936E9411B79D48F0024DE7E /* XXRTabBar.h */,
 				D936E9421B79D48F0024DE7E /* XXRTabBar.m */,
+				D936AE4F1BB1A6CC00D96204 /* XXRTabBarButton.h */,
+				D936AE501BB1A6CC00D96204 /* XXRTabBarButton.m */,
+				D92B631C1BB2F39400BAD59C /* XXRBadgeButton.h */,
+				D92B631D1BB2F39400BAD59C /* XXRBadgeButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -311,6 +296,8 @@
 		D936E93D1B79CE710024DE7E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				D985F14D1BB1B052006688EB /* UIColor+RCColor.h */,
+				D985F14E1BB1B052006688EB /* UIColor+RCColor.m */,
 				D936E93E1B79CE9B0024DE7E /* UIImage+XXR.h */,
 				D936E93F1B79CE9B0024DE7E /* UIImage+XXR.m */,
 			);
@@ -415,6 +402,7 @@
 		D95647611B79890B00C3B9B7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = XXR;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = rgc;
 				TargetAttributes = {
@@ -472,9 +460,13 @@
 			files = (
 				D936E92B1B79B7AB0024DE7E /* XXRMessageViewController.m in Sources */,
 				D936E9431B79D48F0024DE7E /* XXRTabBar.m in Sources */,
+				D936AE511BB1A6CC00D96204 /* XXRTabBarButton.m in Sources */,
 				D936E9371B79B8200024DE7E /* AppDelegate.m in Sources */,
+				D92B631E1BB2F39400BAD59C /* XXRBadgeButton.m in Sources */,
+				D985F14F1BB1B052006688EB /* UIColor+RCColor.m in Sources */,
 				D936E92A1B79B7AB0024DE7E /* XXRMeViewController.m in Sources */,
 				D936E9291B79B7AB0024DE7E /* XXRHomeViewController.m in Sources */,
+				D9AB76A21BB8419300A1AED1 /* XXRNavigationController.m in Sources */,
 				D936E93B1B79B8B30024DE7E /* XXRTabBarViewController.m in Sources */,
 				D936E9381B79B8200024DE7E /* main.m in Sources */,
 				D936E9401B79CE9B0024DE7E /* UIImage+XXR.m in Sources */,
