@@ -21,7 +21,7 @@
 /**
  *  微博ID
  */
-@property (nonatomic, copy) NSString *idStr;
+@property (nonatomic, copy) NSString *idstr;
 /**
  *  转发次数
  */
@@ -35,9 +35,9 @@
  */
 @property (nonatomic, strong) XXRUser *user;
 
-+ (id)statusWithDict:(NSDictionary *)dict;
-
-- (id)initWithDict:(NSDictionary *)dict;
+//+ (id)statusWithDict:(NSDictionary *)dict;
+//
+//- (id)initWithDict:(NSDictionary *)dict;
 
 @end
 

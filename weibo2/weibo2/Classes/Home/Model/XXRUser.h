@@ -12,7 +12,7 @@
 /**
  *  用户id
  */
-@property (nonatomic, copy) NSString *idStr;
+@property (nonatomic, copy) NSString *idstr;
 /**
  *  用户名字
  */

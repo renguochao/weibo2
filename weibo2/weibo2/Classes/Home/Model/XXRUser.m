@@ -10,18 +10,18 @@
 
 @implementation XXRUser
 
-+ (id)userWithDict:(NSDictionary *)dict {
-    return [[self alloc] initWithDict:dict];
-}
-
-- (id)initWithDict:(NSDictionary *)dict {
-    self = [super init];
-    if (self) {
-        self.idStr = dict[@"id"];
-        self.name = dict[@"screen_name"];
-        self.profile_image_url = dict[@"profile_image_url"];
-    }
-    return self;
-}
+//+ (id)userWithDict:(NSDictionary *)dict {
+//    return [[self alloc] initWithDict:dict];
+//}
+//
+//- (id)initWithDict:(NSDictionary *)dict {
+//    self = [super init];
+//    if (self) {
+//        self.idstr = dict[@"id"];
+//        self.name = dict[@"screen_name"];
+//        self.profile_image_url = dict[@"profile_image_url"];
+//    }
+//    return self;
+//}
 
 @end

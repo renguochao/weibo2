@@ -15,8 +15,9 @@
 #import "AFNetworking.h"
 #import "XXRAccountTool.h"
 #import "XXRAccount.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "XXRStatus.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <MJExtension/MJExtension.h>
 
 #define kXXRTitleButtonDownTag 0
 #define kXXRTitleButtonUpTag -1
@@ -45,18 +46,20 @@
     
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         // 取出所有的微博数据
-        NSArray *dictArray = responseObject[@"statuses"];
-        
-        // 将字典数据转换成模型数据
-        NSMutableArray *statusArray = [NSMutableArray array];
-        for (NSDictionary *dict in dictArray) {
-            // 创建模型
-            XXRStatus *status = [XXRStatus statusWithDict:dict];
-            
-            // 添加模型
-            [statusArray addObject:status];
-        }
-        self.statuses = statusArray;
+//        NSArray *dictArray = responseObject[@"statuses"];
+//        
+//        // 将字典数据转换成模型数据
+//        NSMutableArray *statusArray = [NSMutableArray array];
+//        for (NSDictionary *dict in dictArray) {
+//            // 创建模型
+//            XXRStatus *status = [XXRStatus statusWithDict:dict];
+//            
+//            // 添加模型
+//            [statusArray addObject:status];
+//        }
+//        self.statuses = statusArray;
+        // 将字典数组转换成模型数组
+        self.statuses = [XXRStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         
         [self.tableView reloadData];
         XXRLog(@"----%@:", responseObject);
