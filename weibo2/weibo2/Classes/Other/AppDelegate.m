@@ -8,6 +8,12 @@
 
 #import "AppDelegate.h"
 #import "XXRTabBarViewController.h"
+#import "XXROAuthController.h"
+#import "XXRNewfeatureViewController.h"
+
+#import "XXRAccount.h"
+#import "XXRWeiboTool.h"
+#import "XXRAccountTool.h"
 
 @interface AppDelegate ()
 
@@ -18,12 +24,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // 显示状态栏
-    application.statusBarHidden = NO;
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[XXRTabBarViewController alloc] init];
     [self.window makeKeyAndVisible];
+
+    // 1.先判断有无存储账号信息
+    XXRAccount *account = [XXRAccountTool account];
+    
+    if (account) { // 登录成功
+        [XXRWeiboTool chooseRootViewController];
+    } else {    // 之前没有登录成功
+        self.window.rootViewController = [[XXROAuthController alloc] init];
+    }
+    
     return YES;
 }
 
