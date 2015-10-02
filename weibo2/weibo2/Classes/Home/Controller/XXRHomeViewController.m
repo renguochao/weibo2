@@ -16,14 +16,16 @@
 #import "XXRAccountTool.h"
 #import "XXRAccount.h"
 #import "XXRStatus.h"
+#import "XXRStatusFrame.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJExtension/MJExtension.h>
+#import "XXRStatusCell.h"
 
 #define kXXRTitleButtonDownTag 0
 #define kXXRTitleButtonUpTag -1
 
 @interface XXRHomeViewController ()
-@property (nonatomic, strong) NSArray *statuses;
+@property (nonatomic, strong) NSMutableArray *statusFrames;
 @end
 
 @implementation XXRHomeViewController
@@ -58,11 +60,19 @@
 //            [statusArray addObject:status];
 //        }
 //        self.statuses = statusArray;
+        NSMutableArray *statusFrameArray = [NSMutableArray array];
         // 将字典数组转换成模型数组
-        self.statuses = [XXRStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *statusArray = [XXRStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        for (XXRStatus *status in statusArray) {
+//            XXRStatusFrame *statusFrame = [XXRStatusFrame statusFrameWithStatus:status];
+            XXRStatusFrame *statusFrame = [[XXRStatusFrame alloc] init];
+            [statusFrame setStatus:status];
+            [statusFrameArray addObject:statusFrame];
+        }
+        self.statusFrames = statusFrameArray;
         
         [self.tableView reloadData];
-        XXRLog(@"----%@:", responseObject);
+        XXRLog(@"statuses:%@", responseObject[@"statuses"]);
     } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
         
     }];
@@ -111,39 +121,28 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.statuses.count;
+    return self.statusFrames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     // 1.创建cell
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
+    XXRStatusCell *cell = [XXRStatusCell cellWithTableView:tableView];
+        
+    // 2.设置StatusFrame
+    [cell setStatusFrame:[self.statusFrames objectAtIndex:indexPath.row]];
     
-    // 2.设置cell的数据
-    // 微博内容
-    XXRStatus *status = self.statuses[indexPath.row];
-    cell.textLabel.text = status.text;
-    
-    // 微博作者
-    XXRUser *user = status.user;
-    cell.detailTextLabel.text = user.name;
-    
-    // 作者头像
-    NSString *iconUrl = user.profile_image_url;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:iconUrl] placeholderImage:[UIImage imageNamed:@"find_people"] options:SDWebImageRetryFailed | SDWebImageLowPriority];
-//    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:iconUrl]];
-//    cell.imageView.image = [UIImage imageWithData:imageData];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor blackColor];
-    [self.navigationController pushViewController:vc animated:YES];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    XXRStatusFrame *statusFrame = self.statusFrames[indexPath.row];
+    return statusFrame.cellHeight;
 }
+
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UIViewController *vc = [[UIViewController alloc] init];
+//    vc.view.backgroundColor = [UIColor blackColor];
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
 
 @end
