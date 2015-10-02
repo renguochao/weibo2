@@ -19,9 +19,17 @@
  */
 @property (nonatomic, copy) NSString *source;
 /**
+ *  微博时间
+ */
+@property (nonatomic, copy) NSString *created_at;
+/**
  *  微博ID
  */
 @property (nonatomic, copy) NSString *idstr;
+/**
+ *  微博配图
+ */
+@property (nonatomic, strong) NSString *thumbnail_pic;
 /**
  *  转发次数
  */
@@ -31,9 +39,17 @@
  */
 @property (nonatomic, assign) int comments_count;
 /**
+ *  微博的表态数(被赞数)
+ */
+@property (nonatomic, assign) int attitudes_count;
+/**
  *  微博作者
  */
 @property (nonatomic, strong) XXRUser *user;
+/**
+ *  转发的微博
+ */
+@property (nonatomic, strong) XXRStatus *retweeted_status;
 
 //+ (id)statusWithDict:(NSDictionary *)dict;
 //
