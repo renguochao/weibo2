@@ -21,10 +21,18 @@
  *  用户头像
  */
 @property (nonatomic, copy) NSString *profile_image_url;
+/**
+ *  会员等级
+ */
+@property (nonatomic, assign) int mbrank;
+/**
+ *  会员类型
+ */
+@property (nonatomic, assign) int mbtype;
 
-+ (id)userWithDict:(NSDictionary *)dict;
-
-- (id)initWithDict:(NSDictionary *)dict;
+//+ (id)userWithDict:(NSDictionary *)dict;
+//
+//- (id)initWithDict:(NSDictionary *)dict;
 
 @end
 
