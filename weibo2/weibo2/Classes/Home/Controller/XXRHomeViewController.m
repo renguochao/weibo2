@@ -98,6 +98,11 @@
     titleButton.tag = kXXRTitleButtonDownTag;
     [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleButton;
+    
+    self.tableView.backgroundColor = XXRColor(226, 226, 226);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    // 设置tableview有额外的滚动区域
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, XXRStatusCellBorder, 0);
 }
 
 - (void)titleClick:(XXRTitleButton *)titleButton {
