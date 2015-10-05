@@ -9,6 +9,9 @@
 #import "XXRStatusToolbar.h"
 #import "UIImage+XXR.h"
 #import "XXRToolbarButton.h"
+#import "XXRStatus.h"
+
+#define XXRStatusToolbarFont [UIFont systemFontOfSize:12]
 
 @interface XXRStatusToolbar()
 
@@ -47,27 +50,15 @@
         [self setHighlightedImage:[UIImage resizedImageWithName:@"timeline_card_bottom_background_highlighted_os7"]];
         
         /** 2.转发 */
-        XXRToolbarButton *repostButton = [[XXRToolbarButton alloc] init];
-        [repostButton setImage:[UIImage imageNamed:@"timeline_icon_retweet_os7"] forState:UIControlStateNormal];
-        [repostButton setTitle:@"转发" forState:UIControlStateNormal];
-        [self.btns addObject:repostButton];
-        [self addSubview:repostButton];
+        UIButton *repostButton = [self setupBtnWithTitle:@"转发" image:@"timeline_icon_retweet_os7"];
         self.repostButton = repostButton;
         
         /** 3.评论 */
-        XXRToolbarButton *commentButton = [[XXRToolbarButton alloc] init];
-        [commentButton setImage:[UIImage imageNamed:@"timeline_icon_comment_os7"] forState:UIControlStateNormal];
-        [commentButton setTitle:@"评论" forState:UIControlStateNormal];
-        [self.btns addObject:commentButton];
-        [self addSubview:commentButton];
+        UIButton *commentButton = [self setupBtnWithTitle:@"评论" image:@"timeline_icon_comment_os7"];
         self.commentButton = commentButton;
         
         /** 4.点赞 */
-        XXRToolbarButton *attitudeButton = [[XXRToolbarButton alloc] init];
-        [attitudeButton setImage:[UIImage imageNamed:@"timeline_icon_unlike_os7"] forState:UIControlStateNormal];
-        [attitudeButton setTitle:@"3" forState:UIControlStateNormal];
-        [self.btns addObject:attitudeButton];
-        [self addSubview:attitudeButton];
+        UIButton *attitudeButton = [self setupBtnWithTitle:@"赞" image:@"timeline_icon_unlike_os7"];
         self.attitudeButton = attitudeButton;
         
         /** 添加分割线 */
@@ -75,6 +66,25 @@
         [self setupDivider];
     }
     return self;
+}
+
+- (UIButton *)setupBtnWithTitle:(NSString *)title image:(NSString *)image {
+    UIButton *btn = [[UIButton alloc] init];
+    // 取消按钮点击之后调整图片
+    btn.adjustsImageWhenHighlighted = NO;
+    
+    [btn setTitle:title forState:UIControlStateNormal];
+    btn.titleLabel.font = XXRStatusToolbarFont;
+    [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+    [btn setBackgroundImage:[UIImage imageNamed:@"timeline_card_bottom_background_highlighted_os7"] forState:UIControlStateHighlighted];
+    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
+    [self addSubview:btn];
+    
+    // 添加到按钮数组
+    [self.btns addObject:btn];
+    
+    return btn;
 }
 
 - (void)setupDivider {
@@ -113,5 +123,48 @@
     }
 }
 
+- (void)setStatus:(XXRStatus *)status {
+    _status = status;
+    
+    // 1.设置转发数
+    [self setupBtn:self.repostButton originalTitle:@"转发" count:status.reposts_count];
+    
+    // 2.设置评论数
+    [self setupBtn:self.commentButton originalTitle:@"评论" count:status.comments_count];
+    
+    // 2.设置点赞数
+    [self setupBtn:self.attitudeButton originalTitle:@"赞" count:status.attitudes_count];
+}
+
+/**
+ *  设置按钮显示的标题
+ *
+ *  @param btn           需要设置的按钮
+ *  @param originalTitle 原始标题
+ *  @param count         显示的个数
+ */
+- (void)setupBtn:(UIButton *)btn originalTitle:(NSString *)originalTitle count:(int)count {
+    if (count) {
+        NSString *title = nil;
+        /**
+         * 数目 < 10000的 直接显示
+         * 数目 > 10000的 显示多少万
+         *      整万(10012, 20010): 1万，2万
+         *      其他(14363): 1.4万
+         */
+        if (count < 10000) {
+            title = [NSString stringWithFormat:@"%d", count];
+        } else {
+            double countDouble = count / 10000.0;
+            title = [NSString stringWithFormat:@"%.1f万", countDouble];
+            title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
+        }
+        
+        [btn setTitle:title forState:UIControlStateNormal];
+        
+    } else {
+        [btn setTitle:originalTitle forState:UIControlStateNormal];
+    }
+}
 
 @end
