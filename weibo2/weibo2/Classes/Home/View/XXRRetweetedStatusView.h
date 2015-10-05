@@ -1,17 +1,13 @@
 //
-//  XXRStatusCell.h
+//  XXRRetweetedStatusView.h
 //  weibo2
 //
-//  Created by rgc on 15/10/1.
+//  Created by rgc on 15/10/4.
 //  Copyright © 2015年 rgc. All rights reserved.
-//  自定义Cell
+//  Cell内部 被转发微博自定义View
 
 #import <UIKit/UIKit.h>
-
 @class XXRStatusFrame;
-@interface XXRStatusCell : UITableViewCell
-
-+ (instancetype)cellWithTableView:(UITableView *)tableView;
-
+@interface XXRRetweetedStatusView : UIImageView
 @property (nonatomic, strong) XXRStatusFrame *statusFrame;
 @end

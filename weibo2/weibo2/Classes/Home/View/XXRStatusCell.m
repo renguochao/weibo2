@@ -14,6 +14,7 @@
 #import "UIImage+XXR.h"
 #import "Common.h"
 #import "XXRStatusToolbar.h"
+#import "XXRRetweetedStatusView.h"
 
 @interface XXRStatusCell()
 /** 顶部的view */
@@ -34,13 +35,7 @@
 @property (nonatomic, weak) UILabel *contentLabel;
 
 /** 被转发微博的view(父控件) */
-@property (nonatomic, weak) UIImageView *retweetView;
-/** 被转发微博作者昵称 */
-@property (nonatomic, weak) UILabel *retweetNameLabel;
-/** 被转发微博正文\内容 */
-@property (nonatomic, weak) UILabel *retweetContentLabel;
-/** 被转发微博的配图 */
-@property (nonatomic, weak) UIImageView *retweetPhotoView;
+@property (nonatomic, weak) XXRRetweetedStatusView *retweetView;
 
 /** 微博的工具条 */
 @property (nonatomic, weak) XXRStatusToolbar *statusToolbar;
@@ -142,30 +137,9 @@
 - (void)setupRetweetSubviews {
     
     /** 1.被转发微博的view(父控件) */
-    UIImageView *retweetView = [[UIImageView alloc] init];
-    retweetView.image = [UIImage resizedImageWithName:@"timeline_retweet_background_os7" left:0.9 top:0.5];
+    XXRRetweetedStatusView *retweetView = [[XXRRetweetedStatusView alloc] init];
     [self.topView addSubview:retweetView];
     self.retweetView = retweetView;
-    
-    /** 2.被转发微博作者昵称 */
-    UILabel *retweetNameLabel = [[UILabel alloc] init];
-    retweetNameLabel.font = XXRStatusNameFont;
-    retweetNameLabel.backgroundColor = [UIColor clearColor];
-    [self.retweetView addSubview:retweetNameLabel];
-    self.retweetNameLabel = retweetNameLabel;
-    
-    /** 3.被转发微博正文\内容 */
-    UILabel *retweetContentLabel = [[UILabel alloc] init];
-    retweetContentLabel.font = XXRStatusContentFont;
-    retweetContentLabel.backgroundColor = [UIColor clearColor];
-    retweetContentLabel.numberOfLines = 0;
-    [self.retweetView addSubview:retweetContentLabel];
-    self.retweetContentLabel = retweetContentLabel;
-    
-    /** 4.被转发微博的配图 */
-    UIImageView *retweetPhotoView = [[UIImageView alloc] init];
-    [self.retweetView addSubview:retweetPhotoView];
-    self.retweetPhotoView = retweetPhotoView;
 }
 
 /**
@@ -259,29 +233,14 @@
  */
 - (void)setupRetweetData {
     XXRStatus *retweetedStatus = self.statusFrame.status.retweeted_status;
-    XXRUser *retweetedUser = retweetedStatus.user;
     
     // 1.retweetedView
     if (retweetedStatus) {
         self.retweetView.hidden = NO;
         self.retweetView.frame = self.statusFrame.retweetViewFrame;
         
-        // 2.被转发微博作者昵称
-        self.retweetNameLabel.text = [NSString stringWithFormat:@"@%@", retweetedUser.name];
-        self.retweetNameLabel.frame = self.statusFrame.retweetNameLabelFrame;
-        
-        // 3.被转发微博正文
-        self.retweetContentLabel.text = retweetedStatus.text;
-        self.retweetContentLabel.frame = self.statusFrame.retweetContentLabelFrame;
-        
-        // 4.被转发微博配图
-        if (retweetedStatus.thumbnail_pic) {
-            self.retweetPhotoView.hidden = NO;
-            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:retweetedStatus.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"] options:SDWebImageRetryFailed | SDWebImageLowPriority];
-            self.retweetPhotoView.frame = self.statusFrame.retweetPhotoViewFrame;
-        } else {
-            self.retweetPhotoView.hidden = YES;
-        }
+        // 传递模型数据
+        self.retweetView.statusFrame = self.statusFrame;
     } else {
         self.retweetView.hidden = YES;
     }
@@ -292,6 +251,8 @@
  */
 - (void)setupStatusToolBarData {
     self.statusToolbar.frame = self.statusFrame.statusToolbarFrame;
+    
+    self.statusToolbar.status = self.statusFrame.status;
     
 //    CGFloat statusToolbarW = self.statusToolbar.frame.size.width;
 //    CGFloat statusToolbarH = self.statusToolbar.frame.size.height;
