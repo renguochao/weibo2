@@ -20,6 +20,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJExtension/MJExtension.h>
 #import "XXRStatusCell.h"
+#import "XXRPhoto.h"
 
 #define kXXRTitleButtonDownTag 0
 #define kXXRTitleButtonUpTag -1
@@ -62,6 +63,11 @@
 //        self.statuses = statusArray;
         NSMutableArray *statusFrameArray = [NSMutableArray array];
         // 将字典数组转换成模型数组
+        [XXRStatus setupObjectClassInArray:^NSDictionary *{
+            return @{
+                     @"pic_urls" : [XXRPhoto class]
+                   };
+        }];
         NSArray *statusArray = [XXRStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         for (XXRStatus *status in statusArray) {
 //            XXRStatusFrame *statusFrame = [XXRStatusFrame statusFrameWithStatus:status];
@@ -72,7 +78,10 @@
         self.statusFrames = statusFrameArray;
         
         [self.tableView reloadData];
-        XXRLog(@"statuses:%@", responseObject[@"statuses"]);
+//        XXRLog(@"statuses:%@", responseObject[@"statuses"]);
+        for (NSDictionary *dict in responseObject[@"statuses"]) {
+            XXRLog(@"%@", dict);
+        }
     } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
         
     }];
