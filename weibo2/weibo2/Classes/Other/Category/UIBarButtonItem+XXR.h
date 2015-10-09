@@ -1,0 +1,15 @@
+//
+//  UIBarButtonItem+XXR.h
+//  weibo2
+//
+//  Created by rgc on 15/9/29.
+//  Copyright © 2015年 rgc. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface UIBarButtonItem (XXR)
+
++ (UIBarButtonItem *)itemWithIcon:(NSString *)icon highIcon:(NSString *)highIcon target:(id)target action:(SEL)action;
+
+@end
