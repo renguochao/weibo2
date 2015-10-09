@@ -13,7 +13,9 @@
 #import "UIImageView+WebCache.h"
 #import "XXRUser.h"
 #import "XXRStatus.h"
+#import "XXRPhoto.h"
 #import "XXRRetweetedStatusView.h"
+#import "XXRPhotosView.h"
 
 @interface XXRStatusTopView()
 
@@ -22,7 +24,7 @@
 /** 会员图标 */
 @property (nonatomic, weak) UIImageView *vipView;
 /** 配图 */
-@property (nonatomic, weak) UIImageView *photoView;
+@property (nonatomic, weak) XXRPhotosView *photosView;
 /** 昵称 */
 @property (nonatomic, weak) UILabel *nameLabel;
 /** 来源 */
@@ -42,6 +44,9 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        [self setUserInteractionEnabled:YES];
+        
         // 1.设置图片
         [self setImage:[UIImage resizedImageWithName:@"timeline_card_top_background_os7"]];
         [self setHighlightedImage:[UIImage resizedImageWithName:@"timeline_card_top_background_highlighted_os7"]];
@@ -57,9 +62,9 @@
         self.vipView = vipView;
         
         /** 4.配图 */
-        UIImageView *photoView = [[UIImageView alloc] init];
-        [self addSubview:photoView];
-        self.photoView = photoView;
+        XXRPhotosView *photosView = [[XXRPhotosView alloc] init];
+        [self addSubview:photosView];
+        self.photosView = photosView;
         
         /** 5.昵称 */
         UILabel *nameLabel = [[UILabel alloc] init];
@@ -146,12 +151,12 @@
     self.contentLabel.frame = self.statusFrame.contentLabelFrame;
     
     // 8.配图
-    if (status.thumbnail_pic) {
-        self.photoView.hidden = NO;
-        [self.photoView sd_setImageWithURL:[NSURL URLWithString:status.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"] options:SDWebImageRetryFailed | SDWebImageLowPriority];
-        self.photoView.frame = self.statusFrame.photoViewFrame;
+    if (status.pic_urls.count) {
+        self.photosView.hidden = NO;
+        self.photosView.photos = status.pic_urls;
+        self.photosView.frame = self.statusFrame.photosViewFrame;
     } else {
-        self.photoView.hidden = YES;
+        self.photosView.hidden = YES;
     }
     
     // 9.被转发微博的View
