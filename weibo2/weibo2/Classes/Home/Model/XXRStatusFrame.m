@@ -8,6 +8,7 @@
 
 #import "XXRStatusFrame.h"
 #import "XXRStatus.h"
+#import "XXRPhotosView.h"
 
 @implementation XXRStatusFrame
 
@@ -81,12 +82,12 @@
     topViewH = CGRectGetMaxY(_contentLabelFrame) + XXRStatusCellBorder;
     
     // 8.配图
-    if (status.thumbnail_pic) {
-        CGFloat photoViewHW = 70 ;
+    if (status.pic_urls.count) {
         CGFloat photoViewX = contentLabelX;
         CGFloat photoViewY = CGRectGetMaxY(_contentLabelFrame) + XXRStatusCellBorder;
-        _photoViewFrame = CGRectMake(photoViewX, photoViewY, photoViewHW, photoViewHW);
-        topViewH += photoViewHW + XXRStatusCellBorder;
+        CGSize photoViewSize = [XXRPhotosView photosViewSizeWithCount:status.pic_urls.count];
+        _photosViewFrame = (CGRect){{photoViewX, photoViewY}, photoViewSize};
+        topViewH += photoViewSize.height + XXRStatusCellBorder;
     }
     
     // 9.被转发微博
@@ -112,12 +113,12 @@
         retweetViewH = CGRectGetMaxY(_retweetContentLabelFrame) + XXRStatusCellBorder;
         
         // 12.被转发微博配图
-        if (status.retweeted_status.thumbnail_pic) {
-            CGFloat retweetPhotoViewHW = 70 ;
+        if (status.retweeted_status.pic_urls.count) {
             CGFloat retweetPhotoViewX = retweetContentLabelX;
             CGFloat retweetPhotoViewY = CGRectGetMaxY(_retweetContentLabelFrame) + XXRStatusCellBorder;
-            _retweetPhotoViewFrame = CGRectMake(retweetPhotoViewX, retweetPhotoViewY, retweetPhotoViewHW, retweetPhotoViewHW);
-            retweetViewH += retweetPhotoViewHW + XXRStatusCellBorder;
+            CGSize retweetPhotosViewSize = [XXRPhotosView photosViewSizeWithCount:status.retweeted_status.pic_urls.count];
+            _retweetPhotosViewFrame = (CGRect){{retweetPhotoViewX, retweetPhotoViewY}, retweetPhotosViewSize};
+            retweetViewH += retweetPhotosViewSize.height + XXRStatusCellBorder;
         }
         _retweetViewFrame = (CGRect){{retweetViewX, retweetViewY}, {retweetViewW, retweetViewH}};
         topViewH += retweetViewH;

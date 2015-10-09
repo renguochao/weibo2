@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Common.h"
 
-/** cell边框宽度 */
-#define XXRStatusCellBorder 10
 /** 昵称字体 */
 #define XXRStatusNameFont [UIFont systemFontOfSize:15]
 /** 被转发微博昵称字体 */
@@ -41,7 +40,7 @@
 /** 会员图标 */
 @property (nonatomic, assign, readonly) CGRect vipViewFrame;
 /** 配图 */
-@property (nonatomic, assign, readonly) CGRect photoViewFrame;
+@property (nonatomic, assign, readonly) CGRect photosViewFrame;
 /** 昵称 */
 @property (nonatomic, assign, readonly) CGRect nameLabelFrame;
 /** 来源 */
@@ -58,7 +57,7 @@
 /** 被转发微博正文\内容 */
 @property (nonatomic, assign, readonly) CGRect retweetContentLabelFrame;
 /** 被转发微博的配图 */
-@property (nonatomic, assign, readonly) CGRect retweetPhotoViewFrame;
+@property (nonatomic, assign, readonly) CGRect retweetPhotosViewFrame;
 
 /** 微博的工具条 */
 @property (nonatomic, assign, readonly) CGRect statusToolbarFrame;
