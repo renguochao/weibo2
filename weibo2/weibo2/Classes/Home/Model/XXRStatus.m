@@ -8,6 +8,8 @@
 
 #import "XXRStatus.h"
 #import "NSDate+XXR.h"
+#import "XXRPhoto.h"
+#import "MJExtension.h"
 
 @implementation XXRStatus
 

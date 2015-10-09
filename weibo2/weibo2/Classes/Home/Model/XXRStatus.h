@@ -29,7 +29,7 @@
 /**
  *  微博配图
  */
-@property (nonatomic, strong) NSString *thumbnail_pic;
+@property (nonatomic, strong) NSArray *pic_urls;
 /**
  *  转发次数
  */
