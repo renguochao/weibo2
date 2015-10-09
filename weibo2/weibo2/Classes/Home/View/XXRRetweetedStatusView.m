@@ -11,7 +11,9 @@
 #import "XXRStatusFrame.h"
 #import "XXRStatus.h"
 #import "XXRUser.h"
+#import "XXRPhoto.h"
 #import "UIImageView+WebCache.h"
+#import "XXRPhotosView.h"
 
 @interface XXRRetweetedStatusView()
 
@@ -20,7 +22,7 @@
 /** 被转发微博正文\内容 */
 @property (nonatomic, weak) UILabel *retweetContentLabel;
 /** 被转发微博的配图 */
-@property (nonatomic, weak) UIImageView *retweetPhotoView;
+@property (nonatomic, weak) XXRPhotosView *retweetPhotosView;
 
 @end
 
@@ -31,6 +33,7 @@
     if (self) {
         
         self.image = [UIImage resizedImageWithName:@"timeline_retweet_background_os7" left:0.9 top:0.5];
+        [self setUserInteractionEnabled:YES];
         
         /** 2.被转发微博作者昵称 */
         UILabel *retweetNameLabel = [[UILabel alloc] init];
@@ -48,9 +51,9 @@
         self.retweetContentLabel = retweetContentLabel;
         
         /** 4.被转发微博的配图 */
-        UIImageView *retweetPhotoView = [[UIImageView alloc] init];
-        [self addSubview:retweetPhotoView];
-        self.retweetPhotoView = retweetPhotoView;
+        XXRPhotosView *retweetPhotosView = [[XXRPhotosView alloc] init];
+        [self addSubview:retweetPhotosView];
+        self.retweetPhotosView = retweetPhotosView;
 
     }
     return self;
@@ -71,12 +74,13 @@
     self.retweetContentLabel.frame = self.statusFrame.retweetContentLabelFrame;
     
     // 4.被转发微博配图
-    if (retweetedStatus.thumbnail_pic) {
-        self.retweetPhotoView.hidden = NO;
-        [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:retweetedStatus.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"] options:SDWebImageRetryFailed | SDWebImageLowPriority];
-        self.retweetPhotoView.frame = self.statusFrame.retweetPhotoViewFrame;
+    if (retweetedStatus.pic_urls.count) {
+        self.retweetPhotosView.hidden = NO;
+        self.retweetPhotosView.photos = retweetedStatus.pic_urls;
+        
+        self.retweetPhotosView.frame = self.statusFrame.retweetPhotosViewFrame;
     } else {
-        self.retweetPhotoView.hidden = YES;
+        self.retweetPhotosView.hidden = YES;
     }
 }
 
