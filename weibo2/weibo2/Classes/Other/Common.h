@@ -22,5 +22,12 @@
 #define XXRLog(...)
 #endif
 
+/** cell边框宽度 */
+#define XXRStatusCellBorder 10
+
+/** 屏幕宽度、高度*/
+#define SCREENW [[UIScreen mainScreen] bounds].size.width
+#define SCREENH [[UIScreen mainScreen] bounds].size.width
+
 #endif
 
