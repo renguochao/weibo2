@@ -31,61 +31,87 @@
 
 @implementation XXRHomeViewController
 
+- (NSMutableArray *)statusFrames {
+    if (_statusFrames == nil) {
+        _statusFrames = [NSMutableArray array];
+    }
+    return _statusFrames;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // 设置导航栏
     [self setupNavigationBar];
     
-    // 加载微博数据
-    [self loadWeiboStatusData];
+    // 添加刷新控件
+    [self setupRefreshControl];
+    
 }
 
-- (void)loadWeiboStatusData {
+- (void)setupRefreshControl {
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refreshControlStateChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+    
+    // 自动进入刷新状态(不会触发监听方法)
+    [refreshControl beginRefreshing];
+    
+    // 更改refreshControl的状态
+    [self refreshControlStateChanged:refreshControl];
+}
+
+- (void)refreshControlStateChanged:(UIRefreshControl *)refreshControl {
+    
+    XXRLog(@"------refreshControlStateChanged------");
+    // 刷新数据，向新浪请求更新数据
+    // 1.创建请求管理对象
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
+    // 2.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XXRAccountTool account].access_token;
+    params[@"count"] = @5;
+    if (self.statusFrames.count) {
+        XXRStatusFrame *statusFrame = self.statusFrames[0];
+        // 加载ID比since_id大的微博
+        params[@"since_id"] = statusFrame.status.idstr;
+    }
     
+    // 3.发送请求
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         // 取出所有的微博数据
-//        NSArray *dictArray = responseObject[@"statuses"];
-//        
-//        // 将字典数据转换成模型数据
-//        NSMutableArray *statusArray = [NSMutableArray array];
-//        for (NSDictionary *dict in dictArray) {
-//            // 创建模型
-//            XXRStatus *status = [XXRStatus statusWithDict:dict];
-//            
-//            // 添加模型
-//            [statusArray addObject:status];
-//        }
-//        self.statuses = statusArray;
         NSMutableArray *statusFrameArray = [NSMutableArray array];
         // 将字典数组转换成模型数组
         [XXRStatus setupObjectClassInArray:^NSDictionary *{
             return @{
                      @"pic_urls" : [XXRPhoto class]
-                   };
+                     };
         }];
         NSArray *statusArray = [XXRStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         for (XXRStatus *status in statusArray) {
-//            XXRStatusFrame *statusFrame = [XXRStatusFrame statusFrameWithStatus:status];
             XXRStatusFrame *statusFrame = [[XXRStatusFrame alloc] init];
             [statusFrame setStatus:status];
             [statusFrameArray addObject:statusFrame];
         }
-        self.statusFrames = statusFrameArray;
+        
+        // 将新数据插在旧数据前面
+        NSMutableArray *tmpArray = [NSMutableArray array];
+        [tmpArray addObjectsFromArray:statusFrameArray];
+        [tmpArray addObjectsFromArray:self.statusFrames];
+        
+        self.statusFrames = tmpArray;
         
         [self.tableView reloadData];
-//        XXRLog(@"statuses:%@", responseObject[@"statuses"]);
-        for (NSDictionary *dict in responseObject[@"statuses"]) {
-            XXRLog(@"%@", dict);
-        }
+//        for (NSDictionary *dict in responseObject[@"statuses"]) {
+//            XXRLog(@"%@", dict);
+//        }
+        // 让刷新控件停止显示刷新状态
+        [refreshControl endRefreshing];
     } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-        
+        // 让刷新控件停止显示刷新状态
+        [refreshControl endRefreshing];
     }];
-    
 }
 
 - (void)setupNavigationBar {
