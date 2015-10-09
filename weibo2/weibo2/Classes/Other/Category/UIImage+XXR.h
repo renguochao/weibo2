@@ -27,4 +27,15 @@
  */
 + (UIImage *)resizedImageWithName:(NSString *)name;
 
+/**
+ *  拉伸图片
+ *
+ *  @param name 图片名
+ *  @param left leftCap
+ *  @param top  topCap
+ *
+ *  @return 拉伸后的图片
+ */
++ (UIImage *)resizedImageWithName:(NSString *)name left:(CGFloat)left top:(CGFloat)top;
+
 @end
