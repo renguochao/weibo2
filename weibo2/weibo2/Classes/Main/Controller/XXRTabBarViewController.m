@@ -12,6 +12,7 @@
 #import "XXRMessageViewController.h"
 #import "XXRMeViewController.h"
 #import "XXRNavigationController.h"
+#import "XXRComposeViewController.h"
 
 #import "XXRTabBar.h"
 
@@ -60,9 +61,22 @@
     self.customTabBar = customTabBar;
 }
 
-
+#pragma mark - tabbar的代理方法
+/**
+ *  监听tabbar按钮的改变
+ *  @param from   原来位置
+ *  @param to     最新位置
+ */
 - (void)tabBar:(XXRTabBar *)tabBar didSelectButtonFrom:(int)from to:(int)to {
     self.selectedIndex = to;
+}
+
+/**
+ *  监听加号按钮点击
+ */
+- (void)tabBarDidClickedPlusButton:(XXRTabBar *)tabBar {
+    XXRNavigationController *nav = [[XXRNavigationController alloc] initWithRootViewController:[[XXRComposeViewController alloc] init]];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)setupAllChildViewControllers {

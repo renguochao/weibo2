@@ -13,6 +13,7 @@
 
 @optional
 - (void)tabBar:(XXRTabBar *)tabBar didSelectButtonFrom:(int)from to:(int)to;
+- (void)tabBarDidClickedPlusButton:(XXRTabBar *)tabBar;
 
 @end
 
