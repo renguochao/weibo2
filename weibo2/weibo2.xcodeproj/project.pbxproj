@@ -38,6 +38,8 @@
 		D95E86E71BBCDD4E00EA9F87 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86E41BBCDD4E00EA9F87 /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
 		D95E86EA1BBCFD1800EA9F87 /* XXRStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86E91BBCFD1800EA9F87 /* XXRStatus.m */; settings = {ASSET_TAGS = (); }; };
 		D95E86ED1BBCFE2A00EA9F87 /* XXRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86EC1BBCFE2A00EA9F87 /* XXRUser.m */; settings = {ASSET_TAGS = (); }; };
+		D9665D461BC9361D00BAECA0 /* XXRComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9665D451BC9361D00BAECA0 /* XXRComposeViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D9665D491BC93D1500BAECA0 /* XXRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9665D481BC93D1500BAECA0 /* XXRTextView.m */; settings = {ASSET_TAGS = (); }; };
 		D97ACEF01BC2BD3300CAE1F8 /* XXRStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACEEF1BC2BD3300CAE1F8 /* XXRStatusTopView.m */; settings = {ASSET_TAGS = (); }; };
 		D97ACEF31BC5593500CAE1F8 /* XXRPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACEF21BC5593500CAE1F8 /* XXRPhoto.m */; settings = {ASSET_TAGS = (); }; };
 		D97ACEF61BC64D4300CAE1F8 /* XXRPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACEF51BC64D4300CAE1F8 /* XXRPhotoView.m */; settings = {ASSET_TAGS = (); }; };
@@ -136,6 +138,10 @@
 		D95E86E91BBCFD1800EA9F87 /* XXRStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRStatus.m; sourceTree = "<group>"; };
 		D95E86EB1BBCFE2A00EA9F87 /* XXRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRUser.h; sourceTree = "<group>"; };
 		D95E86EC1BBCFE2A00EA9F87 /* XXRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRUser.m; sourceTree = "<group>"; };
+		D9665D441BC9361D00BAECA0 /* XXRComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRComposeViewController.h; sourceTree = "<group>"; };
+		D9665D451BC9361D00BAECA0 /* XXRComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRComposeViewController.m; sourceTree = "<group>"; };
+		D9665D471BC93D1500BAECA0 /* XXRTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRTextView.h; sourceTree = "<group>"; };
+		D9665D481BC93D1500BAECA0 /* XXRTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRTextView.m; sourceTree = "<group>"; };
 		D97ACEEE1BC2BD3300CAE1F8 /* XXRStatusTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRStatusTopView.h; sourceTree = "<group>"; };
 		D97ACEEF1BC2BD3300CAE1F8 /* XXRStatusTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRStatusTopView.m; sourceTree = "<group>"; };
 		D97ACEF11BC5593500CAE1F8 /* XXRPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRPhoto.h; sourceTree = "<group>"; };
@@ -216,6 +222,7 @@
 		D936E9091B79B4D10024DE7E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D9665D401BC935FB00BAECA0 /* Compose */,
 				D95E86C81BBBC8E500EA9F87 /* Newfeature */,
 				D95E86BE1BBB8FE700EA9F87 /* OAuth */,
 				D936E92C1B79B8200024DE7E /* Main */,
@@ -597,6 +604,42 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		D9665D401BC935FB00BAECA0 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				D9665D411BC935FB00BAECA0 /* Controller */,
+				D9665D421BC935FB00BAECA0 /* Model */,
+				D9665D431BC935FB00BAECA0 /* View */,
+			);
+			name = Compose;
+			path = Classes/Compose;
+			sourceTree = "<group>";
+		};
+		D9665D411BC935FB00BAECA0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9665D441BC9361D00BAECA0 /* XXRComposeViewController.h */,
+				D9665D451BC9361D00BAECA0 /* XXRComposeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D9665D421BC935FB00BAECA0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D9665D431BC935FB00BAECA0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9665D471BC93D1500BAECA0 /* XXRTextView.h */,
+				D9665D481BC93D1500BAECA0 /* XXRTextView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D97ACEFA1BC6B47400CAE1F8 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,6 +687,7 @@
 				D95647661B79890B00C3B9B7 /* Frameworks */,
 				D95647671B79890B00C3B9B7 /* Resources */,
 				216DDDE89A4ED9A8F4E794CD /* Copy Pods Resources */,
+				51D7B70F8D0D310AED76B0CB /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -684,6 +728,7 @@
 				TargetAttributes = {
 					D95647681B79890B00C3B9B7 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 73JJP3845B;
 					};
 					D95647811B79890B00C3B9B7 = {
 						CreatedOnToolsVersion = 6.4;
@@ -751,6 +796,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		51D7B70F8D0D310AED76B0CB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		76882D857D7466AE9E3CD25D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -794,6 +854,7 @@
 				D95E86DA1BBC2CE400EA9F87 /* XXRAccountTool.m in Sources */,
 				D936E92A1B79B7AB0024DE7E /* XXRMeViewController.m in Sources */,
 				D95E86EA1BBCFD1800EA9F87 /* XXRStatus.m in Sources */,
+				D9665D491BC93D1500BAECA0 /* XXRTextView.m in Sources */,
 				D94CB75E1BBE586C007200D7 /* NSDate+XXR.m in Sources */,
 				D9AC788C1BC180CC000C85EB /* XXRRetweetedStatusView.m in Sources */,
 				D936E9291B79B7AB0024DE7E /* XXRHomeViewController.m in Sources */,
@@ -801,6 +862,7 @@
 				D95E86CC1BBBC9E000EA9F87 /* XXRNewfeatureViewController.m in Sources */,
 				D95E86D01BBBDC6100EA9F87 /* XXRAccount.m in Sources */,
 				D95E86AE1BBAE26800EA9F87 /* UIBarButtonItem+XXR.m in Sources */,
+				D9665D461BC9361D00BAECA0 /* XXRComposeViewController.m in Sources */,
 				D94CB7611BBEBC8C007200D7 /* XXRStatusToolbar.m in Sources */,
 				D95E86E51BBCDD4E00EA9F87 /* MBProgressHUD+MJ.m in Sources */,
 				D95E86ED1BBCFE2A00EA9F87 /* XXRUser.m in Sources */,
@@ -934,10 +996,14 @@
 			baseConfigurationReference = 4D2BB798D5905DDBD048E26F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = weibo2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.telecomjs.youxinyxt.weibo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -946,10 +1012,14 @@
 			baseConfigurationReference = 1EA34463732DBD6DFBCEC42D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = weibo2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.telecomjs.youxinyxt.weibo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
