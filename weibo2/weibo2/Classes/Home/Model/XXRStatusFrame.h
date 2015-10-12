@@ -10,21 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "Common.h"
 
-/** 昵称字体 */
-#define XXRStatusNameFont [UIFont systemFontOfSize:15]
-/** 被转发微博昵称字体 */
-#define XXRRetweetStatusNameFont XXRStatusNameFont
-
-/** 时间字体 */
-#define XXRStatusTimeFont [UIFont systemFontOfSize:12]
-/** 来源字体 */
-#define XXRStatusSourceFont XXRStatusTimeFont
-
-/** 正文字体 */
-#define XXRStatusContentFont [UIFont systemFontOfSize:13]
-/** 被转发微博正文字体 */
-#define XXRRetweetStatusContentFont XXRStatusContentFont
-
 @class XXRStatus;
 @interface XXRStatusFrame : NSObject
 

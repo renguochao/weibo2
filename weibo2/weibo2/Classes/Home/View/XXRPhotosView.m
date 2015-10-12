@@ -14,10 +14,6 @@
 #import "MJPhoto.h"
 #import "MJPhotoBrowser.h"
 
-#define XXRPhotoMargin 5
-#define XXRPhotoW (SCREENW - XXRPhotoMargin * 2 - XXRStatusCellBorder * 4) / 3
-#define XXRPhotoH XXRPhotoW
-
 @implementation XXRPhotosView
 
 - (instancetype)initWithFrame:(CGRect)frame {

@@ -34,7 +34,7 @@
     [self.view addSubview:webView];
     
     // 2.加载授权页面
-    NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=1470846510&redirect_uri=https://www.baidu.com/"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@", XXRAppKey, XXRRedirectURI]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
 }
@@ -58,7 +58,7 @@
 /**
  *  当webView发送一个请求之前都会调用这个方法，询问代理
  *
- *  @param request        <#request description#>
+ *  @param request        request description
  *
  *  @return YES:可以加载页面 NO:不可以加载页面
  */
@@ -77,6 +77,9 @@
         
         // 5.发送请求给新浪，根据code换取accessToken
         [self accessTokenWithCode:code];
+        
+        // 6.不加载这个请求
+        return NO;
     }
     return YES;
 }
@@ -101,11 +104,11 @@
     
     // 2.设置参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"client_id"] = @"1470846510";
-    params[@"client_secret"] = @"f8464bfebacaf842c7a25cf6a71b68bb";
+    params[@"client_id"] = XXRAppKey;
+    params[@"client_secret"] = XXRAppSecret;
     params[@"grant_type"] = @"authorization_code";
     params[@"code"] = code;
-    params[@"redirect_uri"] = @"https://www.baidu.com/";
+    params[@"redirect_uri"] = XXRRedirectURI;
     
     // 3.发送请求
     [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
