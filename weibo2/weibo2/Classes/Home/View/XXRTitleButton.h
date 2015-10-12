@@ -12,4 +12,6 @@
 
 + (instancetype)titleButton;
 
+- (void)setTitle:(NSString *)title forState:(UIControlState)state;
+
 @end

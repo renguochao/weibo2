@@ -141,7 +141,7 @@
     
     // 6.来源
     self.sourceLabel.text = status.source;
-    CGFloat sourceLabelX = CGRectGetMaxX(self.statusFrame.timeLabelFrame) + XXRStatusCellBorder;
+    CGFloat sourceLabelX = CGRectGetMaxX(self.timeLabel.frame) + XXRStatusCellBorder;
     CGFloat sourceLabelY = self.statusFrame.timeLabelFrame.origin.y;
     CGSize sourceLabelSize = [status.source sizeWithFont:XXRStatusSourceFont];
     self.sourceLabel.frame = (CGRect){{sourceLabelX, sourceLabelY}, sourceLabelSize};

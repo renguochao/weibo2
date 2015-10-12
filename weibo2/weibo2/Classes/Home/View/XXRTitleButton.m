@@ -49,4 +49,16 @@
     return CGRectMake(titleX, titleY, titleW, titleH);
 }
 
+- (void)setTitle:(NSString *)title forState:(UIControlState)state {
+    
+    // 根据title计算自己的高度
+    CGFloat titleW = [title sizeWithFont:self.titleLabel.font].width;
+
+    CGRect frame = self.frame;
+    frame.size.width = titleW + kXXRTitleButtonImageWidth + 5;
+    self.frame = frame;
+    
+    [super setTitle:title forState:state];
+}
+
 @end
