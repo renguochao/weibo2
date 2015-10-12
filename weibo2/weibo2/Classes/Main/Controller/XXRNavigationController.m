@@ -44,6 +44,10 @@
     textAttrs[UITextAttributeFont] = iOS7 ? [UIFont systemFontOfSize:18] : [UIFont systemFontOfSize:12];
     [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:textAttrs forState:UIControlStateHighlighted];
+    
+    NSMutableDictionary *disableTextAttrs = [NSMutableDictionary dictionary];
+    disableTextAttrs[UITextAttributeTextColor] = [UIColor grayColor];
+    [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
 }
 
 + (void)setNavBarTheme {
