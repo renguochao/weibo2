@@ -32,7 +32,25 @@
  *  是否昨天
  */
 - (BOOL)isYestoday {
-    return NO;
+    
+    // 2015-05-01
+    NSDate *nowDate = [[NSDate date] dateWithYMD];
+    
+    // 2015-04-31
+    NSDate *selfDate = [self dateWithYMD];
+    
+    // 获得nowDate和selfDate的差距
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *cmps = [calendar components:NSCalendarUnitDay fromDate:selfDate toDate:nowDate options:0];
+    
+    return cmps.day == 1;
+}
+
+- (NSDate *)dateWithYMD {
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd";
+    NSString *selfStr = [fmt stringFromDate:self];
+    return [fmt dateFromString:selfStr];
 }
 
 /**

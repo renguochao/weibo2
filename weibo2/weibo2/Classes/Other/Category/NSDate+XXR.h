@@ -21,4 +21,8 @@
  */
 - (NSDateComponents *)deltaWithNow;
 
+/**
+ *  返回一个只有年月日的时间
+ */
+- (NSDate *)dateWithYMD;
 @end
