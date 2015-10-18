@@ -55,9 +55,7 @@
         CGFloat imageViewY = (kXXRComposePhotosViewMargin + imageViewW) * row;
         self.subviews[i].frame = CGRectMake(imageViewX, imageViewY, imageViewW, imageViewH);
     }
-    
 }
-
 
 /**
  *  添加一张新的突破
@@ -80,7 +78,7 @@
     for (UIImageView *imageView in self.subviews) {
         [images addObject:imageView.image];
     }
-    
+    [images removeObjectAtIndex:self.subviews.count - 1];
     return images;
 }
 
