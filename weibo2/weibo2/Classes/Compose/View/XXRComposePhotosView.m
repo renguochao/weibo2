@@ -11,13 +11,24 @@
 
 #define kXXRComposePhotosViewBorder 10
 #define kXXRComposePhotosViewMargin 3
+#define kMaxImageCount 9
+
+@interface XXRComposePhotosView()
+
+@property (nonatomic, weak) UIImageView *addPicImageView;
+
+@end
 
 @implementation XXRComposePhotosView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        UIImageView *addPicImageView = [[UIImageView alloc] init];
+        [addPicImageView setImage:[UIImage imageNamed:@"compose_pic_add_os7"]];
+        [addPicImageView setHighlightedImage:[UIImage imageNamed:@"compose_pic_add_highlighted_os7"]];
+        [self addSubview:addPicImageView];
+        self.addPicImageView = addPicImageView;
     }
     return self;
 }
@@ -26,6 +37,11 @@
     [super layoutSubviews];
     
     int count = self.subviews.count;
+    if (count >= 9) {
+        self.addPicImageView.hidden = YES;
+    } else {
+        self.addPicImageView.hidden = NO;
+    }
     
     CGFloat imageViewW = (SCREENW - kXXRComposePhotosViewBorder * 2 - kXXRComposePhotosViewMargin * 2) / 3;
     CGFloat imageViewH = imageViewW;
@@ -48,8 +64,11 @@
  */
 - (void)addImage:(UIImage *)image {
     UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
     imageView.image = image;
-    [self addSubview:imageView];
+    int index = self.subviews.count;
+    [self insertSubview:imageView atIndex:index - 1];
 }
 
 /**
