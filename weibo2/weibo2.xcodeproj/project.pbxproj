@@ -60,6 +60,8 @@
 		D985F14F1BB1B052006688EB /* UIColor+RCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D985F14E1BB1B052006688EB /* UIColor+RCColor.m */; settings = {ASSET_TAGS = (); }; };
 		D9AB76A21BB8419300A1AED1 /* XXRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AB76A11BB8419300A1AED1 /* XXRNavigationController.m */; settings = {ASSET_TAGS = (); }; };
 		D9AC788C1BC180CC000C85EB /* XXRRetweetedStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC788B1BC180CC000C85EB /* XXRRetweetedStatusView.m */; settings = {ASSET_TAGS = (); }; };
+		D9B717BB1BD38DF80004024C /* XXRComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B717BA1BD38DF80004024C /* XXRComposePhotosView.m */; settings = {ASSET_TAGS = (); }; };
+		D9E59F261BCBB15D0086D2DF /* XXRComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E59F251BCBB15D0086D2DF /* XXRComposeToolbar.m */; settings = {ASSET_TAGS = (); }; };
 		D9F5FE0C1BBD6F9C00E50D08 /* XXRStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F5FE0B1BBD6F9C00E50D08 /* XXRStatusCell.m */; settings = {ASSET_TAGS = (); }; };
 		D9F5FE0F1BBD879C00E50D08 /* XXRStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F5FE0E1BBD879C00E50D08 /* XXRStatusFrame.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -177,6 +179,10 @@
 		D9AB76A11BB8419300A1AED1 /* XXRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRNavigationController.m; sourceTree = "<group>"; };
 		D9AC788A1BC180CC000C85EB /* XXRRetweetedStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRRetweetedStatusView.h; sourceTree = "<group>"; };
 		D9AC788B1BC180CC000C85EB /* XXRRetweetedStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRRetweetedStatusView.m; sourceTree = "<group>"; };
+		D9B717B91BD38DF80004024C /* XXRComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRComposePhotosView.h; sourceTree = "<group>"; };
+		D9B717BA1BD38DF80004024C /* XXRComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRComposePhotosView.m; sourceTree = "<group>"; };
+		D9E59F241BCBB15D0086D2DF /* XXRComposeToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRComposeToolbar.h; sourceTree = "<group>"; };
+		D9E59F251BCBB15D0086D2DF /* XXRComposeToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRComposeToolbar.m; sourceTree = "<group>"; };
 		D9F5FE0A1BBD6F9C00E50D08 /* XXRStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRStatusCell.h; sourceTree = "<group>"; };
 		D9F5FE0B1BBD6F9C00E50D08 /* XXRStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRStatusCell.m; sourceTree = "<group>"; };
 		D9F5FE0D1BBD879C00E50D08 /* XXRStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRStatusFrame.h; sourceTree = "<group>"; };
@@ -636,6 +642,10 @@
 			children = (
 				D9665D471BC93D1500BAECA0 /* XXRTextView.h */,
 				D9665D481BC93D1500BAECA0 /* XXRTextView.m */,
+				D9E59F241BCBB15D0086D2DF /* XXRComposeToolbar.h */,
+				D9E59F251BCBB15D0086D2DF /* XXRComposeToolbar.m */,
+				D9B717B91BD38DF80004024C /* XXRComposePhotosView.h */,
+				D9B717BA1BD38DF80004024C /* XXRComposePhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -876,8 +886,10 @@
 				D94CB7641BBEC4ED007200D7 /* XXRToolbarButton.m in Sources */,
 				D97ACEF31BC5593500CAE1F8 /* XXRPhoto.m in Sources */,
 				D97ACF1D1BC6BC8C00CAE1F8 /* SDWebImageManager+MJ.m in Sources */,
+				D9E59F261BCBB15D0086D2DF /* XXRComposeToolbar.m in Sources */,
 				D97ACF191BC6BC8C00CAE1F8 /* MJPhotoLoadingView.m in Sources */,
 				D936E9281B79B7AB0024DE7E /* XXRDiscoverViewController.m in Sources */,
+				D9B717BB1BD38DF80004024C /* XXRComposePhotosView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
