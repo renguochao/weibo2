@@ -52,6 +52,10 @@
     //<a href="http://weibo.com/" rel="nofollow">微博 weibo.com</a>
     NSUInteger loc = [source rangeOfString:@">"].location + 1;
     NSUInteger len = [source rangeOfString:@"</"].location - loc;
+    if (loc >= source.length) {
+        _source = @"";
+        return;
+    }
     NSString *newString = [source substringWithRange:NSMakeRange(loc, len)];
     _source = [NSString stringWithFormat:@"来自 %@", newString];
 }
