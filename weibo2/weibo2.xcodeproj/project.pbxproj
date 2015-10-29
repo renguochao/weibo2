@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B79B5F84E4BD126A65C4011C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4955552332DCC9E5525171C6 /* libPods.a */; };
-		D92B631E1BB2F39400BAD59C /* XXRBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D92B631D1BB2F39400BAD59C /* XXRBadgeButton.m */; settings = {ASSET_TAGS = (); }; };
-		D936AE511BB1A6CC00D96204 /* XXRTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D936AE501BB1A6CC00D96204 /* XXRTabBarButton.m */; settings = {ASSET_TAGS = (); }; };
+		D92B631E1BB2F39400BAD59C /* XXRBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D92B631D1BB2F39400BAD59C /* XXRBadgeButton.m */; };
+		D936AE511BB1A6CC00D96204 /* XXRTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D936AE501BB1A6CC00D96204 /* XXRTabBarButton.m */; };
 		D936E9281B79B7AB0024DE7E /* XXRDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E90F1B79B7AB0024DE7E /* XXRDiscoverViewController.m */; };
 		D936E9291B79B7AB0024DE7E /* XXRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9151B79B7AB0024DE7E /* XXRHomeViewController.m */; };
 		D936E92A1B79B7AB0024DE7E /* XXRMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E91F1B79B7AB0024DE7E /* XXRMeViewController.m */; };
@@ -19,51 +19,52 @@
 		D936E93B1B79B8B30024DE7E /* XXRTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E93A1B79B8B30024DE7E /* XXRTabBarViewController.m */; };
 		D936E9401B79CE9B0024DE7E /* UIImage+XXR.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E93F1B79CE9B0024DE7E /* UIImage+XXR.m */; };
 		D936E9431B79D48F0024DE7E /* XXRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D936E9421B79D48F0024DE7E /* XXRTabBar.m */; };
-		D94CB75E1BBE586C007200D7 /* NSDate+XXR.m in Sources */ = {isa = PBXBuildFile; fileRef = D94CB75D1BBE586C007200D7 /* NSDate+XXR.m */; settings = {ASSET_TAGS = (); }; };
-		D94CB7611BBEBC8C007200D7 /* XXRStatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D94CB7601BBEBC8C007200D7 /* XXRStatusToolbar.m */; settings = {ASSET_TAGS = (); }; };
-		D94CB7641BBEC4ED007200D7 /* XXRToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D94CB7631BBEC4ED007200D7 /* XXRToolbarButton.m */; settings = {ASSET_TAGS = (); }; };
+		D94CB75E1BBE586C007200D7 /* NSDate+XXR.m in Sources */ = {isa = PBXBuildFile; fileRef = D94CB75D1BBE586C007200D7 /* NSDate+XXR.m */; };
+		D94CB7611BBEBC8C007200D7 /* XXRStatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D94CB7601BBEBC8C007200D7 /* XXRStatusToolbar.m */; };
+		D94CB7641BBEC4ED007200D7 /* XXRToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D94CB7631BBEC4ED007200D7 /* XXRToolbarButton.m */; };
 		D956477A1B79890B00C3B9B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95647791B79890B00C3B9B7 /* Images.xcassets */; };
 		D956477D1B79890B00C3B9B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D956477B1B79890B00C3B9B7 /* LaunchScreen.xib */; };
 		D95647891B79890B00C3B9B7 /* weibo2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D95647881B79890B00C3B9B7 /* weibo2Tests.m */; };
-		D95E86AE1BBAE26800EA9F87 /* UIBarButtonItem+XXR.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86AD1BBAE26800EA9F87 /* UIBarButtonItem+XXR.m */; settings = {ASSET_TAGS = (); }; };
-		D95E86B11BBAEC6A00EA9F87 /* XXRSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86B01BBAEC6A00EA9F87 /* XXRSearchBar.m */; settings = {ASSET_TAGS = (); }; };
-		D95E86BD1BBB7EA700EA9F87 /* XXRTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86BC1BBB7EA700EA9F87 /* XXRTitleButton.m */; settings = {ASSET_TAGS = (); }; };
-		D95E86C21BBB901F00EA9F87 /* XXROAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86C11BBB901F00EA9F87 /* XXROAuthController.m */; settings = {ASSET_TAGS = (); }; };
-		D95E86CC1BBBC9E000EA9F87 /* XXRNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86CB1BBBC9E000EA9F87 /* XXRNewfeatureViewController.m */; settings = {ASSET_TAGS = (); }; };
-		D95E86D01BBBDC6100EA9F87 /* XXRAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86CF1BBBDC6100EA9F87 /* XXRAccount.m */; settings = {ASSET_TAGS = (); }; };
-		D95E86D31BBC273200EA9F87 /* XXRWeiboTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86D21BBC273200EA9F87 /* XXRWeiboTool.m */; settings = {ASSET_TAGS = (); }; };
-		D95E86DA1BBC2CE400EA9F87 /* XXRAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86D91BBC2CE400EA9F87 /* XXRAccountTool.m */; settings = {ASSET_TAGS = (); }; };
-		D95E86E51BBCDD4E00EA9F87 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86E11BBCDD4E00EA9F87 /* MBProgressHUD+MJ.m */; settings = {ASSET_TAGS = (); }; };
-		D95E86E61BBCDD4E00EA9F87 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D95E86E21BBCDD4E00EA9F87 /* MBProgressHUD.bundle */; settings = {ASSET_TAGS = (); }; };
-		D95E86E71BBCDD4E00EA9F87 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86E41BBCDD4E00EA9F87 /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
-		D95E86EA1BBCFD1800EA9F87 /* XXRStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86E91BBCFD1800EA9F87 /* XXRStatus.m */; settings = {ASSET_TAGS = (); }; };
-		D95E86ED1BBCFE2A00EA9F87 /* XXRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86EC1BBCFE2A00EA9F87 /* XXRUser.m */; settings = {ASSET_TAGS = (); }; };
-		D9665D461BC9361D00BAECA0 /* XXRComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9665D451BC9361D00BAECA0 /* XXRComposeViewController.m */; settings = {ASSET_TAGS = (); }; };
-		D9665D491BC93D1500BAECA0 /* XXRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9665D481BC93D1500BAECA0 /* XXRTextView.m */; settings = {ASSET_TAGS = (); }; };
-		D97ACEF01BC2BD3300CAE1F8 /* XXRStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACEEF1BC2BD3300CAE1F8 /* XXRStatusTopView.m */; settings = {ASSET_TAGS = (); }; };
-		D97ACEF31BC5593500CAE1F8 /* XXRPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACEF21BC5593500CAE1F8 /* XXRPhoto.m */; settings = {ASSET_TAGS = (); }; };
-		D97ACEF61BC64D4300CAE1F8 /* XXRPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACEF51BC64D4300CAE1F8 /* XXRPhotoView.m */; settings = {ASSET_TAGS = (); }; };
-		D97ACEF91BC6718E00CAE1F8 /* XXRPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACEF81BC6718E00CAE1F8 /* XXRPhotosView.m */; settings = {ASSET_TAGS = (); }; };
-		D97ACF011BC6B47400CAE1F8 /* btn_close_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D97ACEFB1BC6B47400CAE1F8 /* btn_close_normal.png */; settings = {ASSET_TAGS = (); }; };
-		D97ACF021BC6B47400CAE1F8 /* btn_close_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D97ACEFC1BC6B47400CAE1F8 /* btn_close_normal@2x.png */; settings = {ASSET_TAGS = (); }; };
-		D97ACF031BC6B47400CAE1F8 /* btn_close_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D97ACEFD1BC6B47400CAE1F8 /* btn_close_selected.png */; settings = {ASSET_TAGS = (); }; };
-		D97ACF041BC6B47400CAE1F8 /* btn_close_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D97ACEFE1BC6B47400CAE1F8 /* btn_close_selected@2x.png */; settings = {ASSET_TAGS = (); }; };
-		D97ACF051BC6B47400CAE1F8 /* DXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF001BC6B47400CAE1F8 /* DXAlertView.m */; settings = {ASSET_TAGS = (); }; };
-		D97ACF161BC6BC8C00CAE1F8 /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF081BC6BC8C00CAE1F8 /* MJPhoto.m */; settings = {ASSET_TAGS = (); }; };
-		D97ACF171BC6BC8C00CAE1F8 /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D97ACF091BC6BC8C00CAE1F8 /* MJPhotoBrowser.bundle */; settings = {ASSET_TAGS = (); }; };
-		D97ACF181BC6BC8C00CAE1F8 /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF0B1BC6BC8C00CAE1F8 /* MJPhotoBrowser.m */; settings = {ASSET_TAGS = (); }; };
-		D97ACF191BC6BC8C00CAE1F8 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF0D1BC6BC8C00CAE1F8 /* MJPhotoLoadingView.m */; settings = {ASSET_TAGS = (); }; };
-		D97ACF1A1BC6BC8C00CAE1F8 /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF0F1BC6BC8C00CAE1F8 /* MJPhotoProgressView.m */; settings = {ASSET_TAGS = (); }; };
-		D97ACF1B1BC6BC8C00CAE1F8 /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF111BC6BC8C00CAE1F8 /* MJPhotoToolbar.m */; settings = {ASSET_TAGS = (); }; };
-		D97ACF1C1BC6BC8C00CAE1F8 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF131BC6BC8C00CAE1F8 /* MJPhotoView.m */; settings = {ASSET_TAGS = (); }; };
-		D97ACF1D1BC6BC8C00CAE1F8 /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF151BC6BC8C00CAE1F8 /* SDWebImageManager+MJ.m */; settings = {ASSET_TAGS = (); }; };
-		D985F14F1BB1B052006688EB /* UIColor+RCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D985F14E1BB1B052006688EB /* UIColor+RCColor.m */; settings = {ASSET_TAGS = (); }; };
-		D9AB76A21BB8419300A1AED1 /* XXRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AB76A11BB8419300A1AED1 /* XXRNavigationController.m */; settings = {ASSET_TAGS = (); }; };
-		D9AC788C1BC180CC000C85EB /* XXRRetweetedStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC788B1BC180CC000C85EB /* XXRRetweetedStatusView.m */; settings = {ASSET_TAGS = (); }; };
-		D9B717BB1BD38DF80004024C /* XXRComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B717BA1BD38DF80004024C /* XXRComposePhotosView.m */; settings = {ASSET_TAGS = (); }; };
-		D9E59F261BCBB15D0086D2DF /* XXRComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E59F251BCBB15D0086D2DF /* XXRComposeToolbar.m */; settings = {ASSET_TAGS = (); }; };
-		D9F5FE0C1BBD6F9C00E50D08 /* XXRStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F5FE0B1BBD6F9C00E50D08 /* XXRStatusCell.m */; settings = {ASSET_TAGS = (); }; };
-		D9F5FE0F1BBD879C00E50D08 /* XXRStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F5FE0E1BBD879C00E50D08 /* XXRStatusFrame.m */; settings = {ASSET_TAGS = (); }; };
+		D95E86AE1BBAE26800EA9F87 /* UIBarButtonItem+XXR.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86AD1BBAE26800EA9F87 /* UIBarButtonItem+XXR.m */; };
+		D95E86B11BBAEC6A00EA9F87 /* XXRSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86B01BBAEC6A00EA9F87 /* XXRSearchBar.m */; };
+		D95E86BD1BBB7EA700EA9F87 /* XXRTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86BC1BBB7EA700EA9F87 /* XXRTitleButton.m */; };
+		D95E86C21BBB901F00EA9F87 /* XXROAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86C11BBB901F00EA9F87 /* XXROAuthController.m */; };
+		D95E86CC1BBBC9E000EA9F87 /* XXRNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86CB1BBBC9E000EA9F87 /* XXRNewfeatureViewController.m */; };
+		D95E86D01BBBDC6100EA9F87 /* XXRAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86CF1BBBDC6100EA9F87 /* XXRAccount.m */; };
+		D95E86D31BBC273200EA9F87 /* XXRWeiboTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86D21BBC273200EA9F87 /* XXRWeiboTool.m */; };
+		D95E86DA1BBC2CE400EA9F87 /* XXRAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86D91BBC2CE400EA9F87 /* XXRAccountTool.m */; };
+		D95E86E51BBCDD4E00EA9F87 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86E11BBCDD4E00EA9F87 /* MBProgressHUD+MJ.m */; };
+		D95E86E61BBCDD4E00EA9F87 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D95E86E21BBCDD4E00EA9F87 /* MBProgressHUD.bundle */; };
+		D95E86E71BBCDD4E00EA9F87 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86E41BBCDD4E00EA9F87 /* MBProgressHUD.m */; };
+		D95E86EA1BBCFD1800EA9F87 /* XXRStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86E91BBCFD1800EA9F87 /* XXRStatus.m */; };
+		D95E86ED1BBCFE2A00EA9F87 /* XXRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D95E86EC1BBCFE2A00EA9F87 /* XXRUser.m */; };
+		D9665D461BC9361D00BAECA0 /* XXRComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9665D451BC9361D00BAECA0 /* XXRComposeViewController.m */; };
+		D9665D491BC93D1500BAECA0 /* XXRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9665D481BC93D1500BAECA0 /* XXRTextView.m */; };
+		D97ACEF01BC2BD3300CAE1F8 /* XXRStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACEEF1BC2BD3300CAE1F8 /* XXRStatusTopView.m */; };
+		D97ACEF31BC5593500CAE1F8 /* XXRPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACEF21BC5593500CAE1F8 /* XXRPhoto.m */; };
+		D97ACEF61BC64D4300CAE1F8 /* XXRPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACEF51BC64D4300CAE1F8 /* XXRPhotoView.m */; };
+		D97ACEF91BC6718E00CAE1F8 /* XXRPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACEF81BC6718E00CAE1F8 /* XXRPhotosView.m */; };
+		D97ACF011BC6B47400CAE1F8 /* btn_close_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D97ACEFB1BC6B47400CAE1F8 /* btn_close_normal.png */; };
+		D97ACF021BC6B47400CAE1F8 /* btn_close_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D97ACEFC1BC6B47400CAE1F8 /* btn_close_normal@2x.png */; };
+		D97ACF031BC6B47400CAE1F8 /* btn_close_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D97ACEFD1BC6B47400CAE1F8 /* btn_close_selected.png */; };
+		D97ACF041BC6B47400CAE1F8 /* btn_close_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D97ACEFE1BC6B47400CAE1F8 /* btn_close_selected@2x.png */; };
+		D97ACF051BC6B47400CAE1F8 /* DXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF001BC6B47400CAE1F8 /* DXAlertView.m */; };
+		D97ACF161BC6BC8C00CAE1F8 /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF081BC6BC8C00CAE1F8 /* MJPhoto.m */; };
+		D97ACF171BC6BC8C00CAE1F8 /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D97ACF091BC6BC8C00CAE1F8 /* MJPhotoBrowser.bundle */; };
+		D97ACF181BC6BC8C00CAE1F8 /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF0B1BC6BC8C00CAE1F8 /* MJPhotoBrowser.m */; };
+		D97ACF191BC6BC8C00CAE1F8 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF0D1BC6BC8C00CAE1F8 /* MJPhotoLoadingView.m */; };
+		D97ACF1A1BC6BC8C00CAE1F8 /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF0F1BC6BC8C00CAE1F8 /* MJPhotoProgressView.m */; };
+		D97ACF1B1BC6BC8C00CAE1F8 /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF111BC6BC8C00CAE1F8 /* MJPhotoToolbar.m */; };
+		D97ACF1C1BC6BC8C00CAE1F8 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF131BC6BC8C00CAE1F8 /* MJPhotoView.m */; };
+		D97ACF1D1BC6BC8C00CAE1F8 /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = D97ACF151BC6BC8C00CAE1F8 /* SDWebImageManager+MJ.m */; };
+		D985F14F1BB1B052006688EB /* UIColor+RCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D985F14E1BB1B052006688EB /* UIColor+RCColor.m */; };
+		D9AB76A21BB8419300A1AED1 /* XXRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AB76A11BB8419300A1AED1 /* XXRNavigationController.m */; };
+		D9AC788C1BC180CC000C85EB /* XXRRetweetedStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC788B1BC180CC000C85EB /* XXRRetweetedStatusView.m */; };
+		D9B717BB1BD38DF80004024C /* XXRComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B717BA1BD38DF80004024C /* XXRComposePhotosView.m */; };
+		D9B717BF1BD3A3330004024C /* XXRHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B717BE1BD3A3330004024C /* XXRHttpTool.m */; };
+		D9E59F261BCBB15D0086D2DF /* XXRComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E59F251BCBB15D0086D2DF /* XXRComposeToolbar.m */; };
+		D9F5FE0C1BBD6F9C00E50D08 /* XXRStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F5FE0B1BBD6F9C00E50D08 /* XXRStatusCell.m */; };
+		D9F5FE0F1BBD879C00E50D08 /* XXRStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F5FE0E1BBD879C00E50D08 /* XXRStatusFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +182,8 @@
 		D9AC788B1BC180CC000C85EB /* XXRRetweetedStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRRetweetedStatusView.m; sourceTree = "<group>"; };
 		D9B717B91BD38DF80004024C /* XXRComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRComposePhotosView.h; sourceTree = "<group>"; };
 		D9B717BA1BD38DF80004024C /* XXRComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRComposePhotosView.m; sourceTree = "<group>"; };
+		D9B717BD1BD3A3330004024C /* XXRHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRHttpTool.h; sourceTree = "<group>"; };
+		D9B717BE1BD3A3330004024C /* XXRHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRHttpTool.m; sourceTree = "<group>"; };
 		D9E59F241BCBB15D0086D2DF /* XXRComposeToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRComposeToolbar.h; sourceTree = "<group>"; };
 		D9E59F251BCBB15D0086D2DF /* XXRComposeToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRComposeToolbar.m; sourceTree = "<group>"; };
 		D9F5FE0A1BBD6F9C00E50D08 /* XXRStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRStatusCell.h; sourceTree = "<group>"; };
@@ -448,6 +451,7 @@
 		D936E9321B79B8200024DE7E /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				D9B717BC1BD3A31C0004024C /* Tool */,
 				D95E86DE1BBCDD4E00EA9F87 /* Lib */,
 				D936E93D1B79CE710024DE7E /* Category */,
 				D936E9331B79B8200024DE7E /* AppDelegate.h */,
@@ -685,6 +689,15 @@
 			path = MJPhotoBrowser;
 			sourceTree = "<group>";
 		};
+		D9B717BC1BD3A31C0004024C /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				D9B717BD1BD3A3330004024C /* XXRHttpTool.h */,
+				D9B717BE1BD3A3330004024C /* XXRHttpTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -883,6 +896,7 @@
 				D97ACF1A1BC6BC8C00CAE1F8 /* MJPhotoProgressView.m in Sources */,
 				D936E9401B79CE9B0024DE7E /* UIImage+XXR.m in Sources */,
 				D97ACF181BC6BC8C00CAE1F8 /* MJPhotoBrowser.m in Sources */,
+				D9B717BF1BD3A3330004024C /* XXRHttpTool.m in Sources */,
 				D94CB7641BBEC4ED007200D7 /* XXRToolbarButton.m in Sources */,
 				D97ACEF31BC5593500CAE1F8 /* XXRPhoto.m in Sources */,
 				D97ACF1D1BC6BC8C00CAE1F8 /* SDWebImageManager+MJ.m in Sources */,
@@ -1011,7 +1025,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = weibo2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.telecomjs.youxinyxt.weibo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1027,7 +1041,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = weibo2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.telecomjs.youxinyxt.weibo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
