@@ -8,17 +8,19 @@
 
 #import "XXRHomeViewController.h"
 
-#import "Common.h"
 #import "UIBarButtonItem+XXR.h"
 #import "UIImage+XXR.h"
 #import "XXRTitleButton.h"
-#import "AFNetworking.h"
-#import "XXRAccountTool.h"
 #import "XXRAccount.h"
 #import "XXRStatus.h"
 #import "XXRStatusFrame.h"
 #import "XXRStatusCell.h"
 #import "XXRPhoto.h"
+
+#import "Common.h"
+#import "XXRAccountTool.h"
+#import "XXRHttpTool.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJExtension/MJExtension.h>
 #import <MJRefresh/MJRefresh.h>
@@ -70,21 +72,18 @@
  */
 - (void)loadNewData {
     // 刷新数据，向新浪请求加载最新数据
-    // 1.创建请求管理对象
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
-    // 2.封装请求参数
+    // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XXRAccountTool account].access_token;
-    params[@"count"] = @100;
+    params[@"count"] = @20;
     if (self.statusFrames.count) {
         XXRStatusFrame *statusFrame = self.statusFrames[0];
         // 加载ID比since_id大的微博
         params[@"since_id"] = statusFrame.status.idstr;
     }
     
-    // 3.发送请求
-    [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    // 2.发送请求
+    [XXRHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
         // 取出所有的微博数据
         NSMutableArray *statusFrameArray = [NSMutableArray array];
         // 将字典数组转换成模型数组
@@ -93,19 +92,19 @@
                      @"pic_urls" : [XXRPhoto class]
                      };
         }];
-        NSArray *statusArray = [XXRStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *statusArray = [XXRStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         for (XXRStatus *status in statusArray) {
             XXRStatusFrame *statusFrame = [[XXRStatusFrame alloc] init];
             [statusFrame setStatus:status];
             [statusFrameArray addObject:statusFrame];
         }
-        
+
         // 将新数据插在旧数据前面
         NSMutableArray *tmpArray = [NSMutableArray array];
         [tmpArray addObjectsFromArray:statusFrameArray];
         [tmpArray addObjectsFromArray:self.statusFrames];
         self.statusFrames = tmpArray;
-        
+
         // 刷新表格
         [self.tableView reloadData];
         
@@ -114,9 +113,10 @@
         
         // 结束刷新
         [self.tableView.header endRefreshing];
-    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         
     }];
+
 }
 
 /**
@@ -125,10 +125,7 @@
 - (void)loadMoreData {
     
     // 刷新数据，向新浪请求加载更多数据
-    // 1.创建请求管理对象
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
-    // 2.封装请求参数
+    // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XXRAccountTool account].access_token;
     params[@"count"] = @100;
@@ -139,8 +136,8 @@
         params[@"max_id"] = @(maxId);
     }
     
-    // 3.发送请求
-    [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    // 2.发送请求
+    [XXRHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
         // 取出所有的微博数据
         NSMutableArray *statusFrameArray = [NSMutableArray array];
         // 将字典数组转换成模型数组
@@ -149,127 +146,52 @@
                      @"pic_urls" : [XXRPhoto class]
                      };
         }];
-        NSArray *statusArray = [XXRStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *statusArray = [XXRStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         for (XXRStatus *status in statusArray) {
             XXRStatusFrame *statusFrame = [[XXRStatusFrame alloc] init];
             [statusFrame setStatus:status];
             [statusFrameArray addObject:statusFrame];
         }
-        
+
         // 将旧数据插到最后面
         [self.statusFrames addObjectsFromArray:statusFrameArray];
-        
+
         // 刷新表格
         [self.tableView reloadData];
-        
+
         // 显示最新微博的数量
         [self showNewStatusCount:statusFrameArray.count];
         
         // 结束刷新
         [self.tableView.header endRefreshing];
-    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-        
+    } failure:^(NSError *error) {
+        // 结束刷新
+        [self.tableView.header endRefreshing];
     }];
-
     
-    
-    
-    // 结束刷新
-    [self.tableView.footer endRefreshing];
 }
 
 - (void)setupUserData {
     
-    // 1.创建请求管理对象
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
-    // 2.封装请求参数
+    // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XXRAccountTool account].access_token;
     params[@"uid"] = @([XXRAccountTool account].uid);
     
-    // 3.发送请求
-    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    // 2.发送请求
+    [XXRHttpTool getWithURL:@"https://api.weibo.com/2/users/show.json" params:params success:^(id json) {
         // 字典转模型
-        XXRUser *user = [XXRUser objectWithKeyValues:responseObject];
+        XXRUser *user = [XXRUser objectWithKeyValues:json];
         // 设置标题文字
         [self.titleButton setTitle:user.name forState:UIControlStateNormal];
         // 保存昵称
         XXRAccount *account = [XXRAccountTool account];
         account.name = user.name;
         [XXRAccountTool saveAccount:account];
-    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         
     }];
     
-}
-
-- (void)setupRefreshControl {
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(refreshControlStateChanged:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:refreshControl];
-    
-    // 自动进入刷新状态(不会触发监听方法)
-    [refreshControl beginRefreshing];
-    
-    // 更改refreshControl的状态
-    [self refreshControlStateChanged:refreshControl];
-}
-
-- (void)refreshControlStateChanged:(UIRefreshControl *)refreshControl {
-    
-//    XXRLog(@"------refreshControlStateChanged------");
-    // 刷新数据，向新浪请求更新数据
-    // 1.创建请求管理对象
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
-    // 2.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [XXRAccountTool account].access_token;
-    params[@"count"] = @5;
-    if (self.statusFrames.count) {
-        XXRStatusFrame *statusFrame = self.statusFrames[0];
-        // 加载ID比since_id大的微博
-        params[@"since_id"] = statusFrame.status.idstr;
-    }
-    
-    // 3.发送请求
-    [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        // 取出所有的微博数据
-        NSMutableArray *statusFrameArray = [NSMutableArray array];
-        // 将字典数组转换成模型数组
-        [XXRStatus setupObjectClassInArray:^NSDictionary *{
-            return @{
-                     @"pic_urls" : [XXRPhoto class]
-                     };
-        }];
-        NSArray *statusArray = [XXRStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-        for (XXRStatus *status in statusArray) {
-            XXRStatusFrame *statusFrame = [[XXRStatusFrame alloc] init];
-            [statusFrame setStatus:status];
-            [statusFrameArray addObject:statusFrame];
-        }
-        
-        // 将新数据插在旧数据前面
-        NSMutableArray *tmpArray = [NSMutableArray array];
-        [tmpArray addObjectsFromArray:statusFrameArray];
-        [tmpArray addObjectsFromArray:self.statusFrames];
-        self.statusFrames = tmpArray;
-        
-        // 刷新表格
-        [self.tableView reloadData];
-//        for (NSDictionary *dict in responseObject[@"statuses"]) {
-//            XXRLog(@"%@", dict);
-//        }
-        // 让刷新控件停止显示刷新状态
-        [refreshControl endRefreshing];
-        
-        // 显示最新微博的数量
-        [self showNewStatusCount:statusFrameArray.count];
-    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-        // 让刷新控件停止显示刷新状态
-        [refreshControl endRefreshing];
-    }];
 }
 
 /**
