@@ -12,11 +12,12 @@
 
 #import "XXRAccount.h"
 
-#import <AFNetworking/AFNetworking.h>
-#import "MBProgressHUD+MJ.h"
-#import "Common.h"
 #import "XXRWeiboTool.h"
 #import "XXRAccountTool.h"
+#import "XXRHttpTool.h"
+
+#import "MBProgressHUD+MJ.h"
+#import "Common.h"
 
 @interface XXROAuthController () <UIWebViewDelegate>
 
@@ -98,11 +99,7 @@
  */
 - (void)accessTokenWithCode:(NSString *)code {
     
-    // 1.创建请求管理类
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    mgr.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    // 2.设置参数
+    // 1.设置参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"client_id"] = XXRAppKey;
     params[@"client_secret"] = XXRAppSecret;
@@ -110,22 +107,22 @@
     params[@"code"] = code;
     params[@"redirect_uri"] = XXRRedirectURI;
     
-    // 3.发送请求
-    [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        // 4.先将字典转为模型
-        XXRAccount *account = [XXRAccount accountWithDict:responseObject];
-        XXRLog(@"请求成功:%@", responseObject);
-        
-        // 5.存储模型信息:归档
+    // 2.发送请求
+    [XXRHttpTool postWithURL:@"https://api.weibo.com/oauth2/access_token" params:params success:^(id json) {
+        // 3.先将字典转为模型
+        XXRAccount *account = [XXRAccount accountWithDict:json];
+        XXRLog(@"请求成功:%@", json);
+
+        // 4.存储模型信息:归档
         // 获取沙盒Document路径
         [XXRAccountTool saveAccount:account];
-        
-        // 6.登录成功，会有两种跳转可能(首页、新特性)
+
+        // 5.登录成功，会有两种跳转可能(首页、新特性)
         [XXRWeiboTool chooseRootViewController];
         
-        // 7.隐藏加载框
+        // 6.隐藏加载框
         [MBProgressHUD hideHUD];
-    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {        
         XXRLog(@"请求失败:%@", error);
         [MBProgressHUD hideHUD];
     }];
