@@ -13,7 +13,7 @@
 
 #import "Common.h"
 #import "XXRAccountTool.h"
-#import <AFNetworking/AFNetworking.h>
+#import "XXRHttpTool.h"
 #import "MBProgressHUD+MJ.h"
 
 @interface XXRComposeViewController () <UITextViewDelegate, XXRComposeToolbarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -207,65 +207,70 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(sendWithImage)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(sendStatus)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.title = @"发微博";
 }
 
+- (void)sendStatus {
+    NSArray *images = [self.photosView totalImages];
+    if (images.count) {
+        [self sendWithImage];
+    } else {
+        [self sendWithoutImage];
+    }
+}
+
 - (void)sendWithImage {
-    // 1.创建请求管理类
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    mgr.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    // 2.设置参数
+    // 1.设置参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XXRAccountTool account].access_token;
     params[@"status"] = self.textView.text;
     
-    // 3.发送请求
-    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        // 在发送请求之前调用这个block
-        // 必须在这里说明要上传哪些文件
-        NSArray *images = [self.photosView totalImages];
-        for (UIImage *image in images) {
-            NSData *data = UIImageJPEGRepresentation(image, 0.1);
-            [formData appendPartWithFileData:data name:@"pic" fileName:@"" mimeType:@"image/jpeg"];
-        }
-    } success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    // 2.封装文件参数
+    NSMutableArray *formDataArray = [NSMutableArray array];
+    NSArray *images = [self.photosView totalImages];
+    for (UIImage *image in images) {
+        XXRFormData *formData = [[XXRFormData alloc] init];
+        formData.data = UIImageJPEGRepresentation(image, 0.1);
+        formData.name = @"pic";
+        formData.mimeType = @"image/jpeg";
+        formData.filename = @"";
+        [formDataArray addObject:formData];
+    }
+    
+    // 2.发送请求
+    [XXRHttpTool postWithURL:@"https://upload.api.weibo.com/2/statuses/upload.json" params:params formDataArray:formDataArray success:^(id json) {
         [MBProgressHUD showSuccess:@"发送成功"];
-    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
+        XXRLog(@"请求失败:%@", error);
         [MBProgressHUD showError:@"发送失败"];
     }];
     
-    // 4.关闭控制器
+    // 3.关闭控制器
     [self cancel];
 }
 
 - (void)sendWithoutImage {
-    // 1.创建请求管理类
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    mgr.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    // 2.设置参数
+    // 1.设置参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XXRAccountTool account].access_token;
     params[@"status"] = self.textView.text;
     
-    // 3.发送请求
-    [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        
-        XXRLog(@"请求成功:%@", responseObject);
+    // 2.发送请求
+    [XXRHttpTool postWithURL:@"https://api.weibo.com/2/statuses/update.json" params:params success:^(id json) {
+        XXRLog(@"请求成功:%@", json);
         
         [MBProgressHUD showSuccess:@"发送成功"];
-        
-    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-        
+    } failure:^(NSError *error) {
         XXRLog(@"请求失败:%@", error);
         
         [MBProgressHUD showError:@"发送失败"];
     }];
     
-    // 4.关闭控制器
+    // 3.关闭控制器
     [self cancel];
 }
 
