@@ -10,11 +10,14 @@
 #import "XXRTextView.h"
 #import "XXRComposeToolbar.h"
 #import "XXRComposePhotosView.h"
+#import "XXRSendStatusParam.h"
 
 #import "Common.h"
 #import "XXRAccountTool.h"
 #import "XXRHttpTool.h"
+#import "XXRStatusTool.h"
 #import "MBProgressHUD+MJ.h"
+#import "XXRSendStatusResult.h"
 
 @interface XXRComposeViewController () <UITextViewDelegate, XXRComposeToolbarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -255,13 +258,13 @@
 - (void)sendWithoutImage {
     
     // 1.设置参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [XXRAccountTool account].access_token;
-    params[@"status"] = self.textView.text;
+    XXRSendStatusParam *param = [[XXRSendStatusParam alloc] init];
+    param.access_token = [XXRAccountTool account].access_token;
+    param.status = self.textView.text;
     
     // 2.发送请求
-    [XXRHttpTool postWithURL:@"https://api.weibo.com/2/statuses/update.json" params:params success:^(id json) {
-        XXRLog(@"请求成功:%@", json);
+    [XXRStatusTool sendStatusWithParam:param success:^(XXRSendStatusResult *result) {
+        XXRLog(@"请求成功:%@", result);
         
         [MBProgressHUD showSuccess:@"发送成功"];
     } failure:^(NSError *error) {
