@@ -8,10 +8,15 @@
 
 #import "XXRStatus.h"
 #import "NSDate+XXR.h"
-#import "XXRPhoto.h"
 #import "MJExtension.h"
 
 @implementation XXRStatus
+
++ (NSDictionary *)objectClassInArray {
+    return @{
+             @"pic_urls" : @"XXRPhoto"
+             };
+}
 
 - (NSString *)created_at {
     // 1.获得微博发送时间
