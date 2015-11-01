@@ -16,9 +16,11 @@
 #import "XXRStatusFrame.h"
 #import "XXRStatusCell.h"
 #import "XXRPhoto.h"
+#import "XXRHomeStatusesParam.h"
 
 #import "Common.h"
 #import "XXRAccountTool.h"
+#import "XXRStatusTool.h"
 #import "XXRHttpTool.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -73,38 +75,29 @@
 - (void)loadNewData {
     // 刷新数据，向新浪请求加载最新数据
     // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [XXRAccountTool account].access_token;
-    params[@"count"] = @20;
+    XXRHomeStatusesParam *param = [[XXRHomeStatusesParam alloc] init];
+    param.access_token = [XXRAccountTool account].access_token;
+    param.count = @(5);
     if (self.statusFrames.count) {
         XXRStatusFrame *statusFrame = self.statusFrames[0];
-        // 加载ID比since_id大的微博
-        params[@"since_id"] = statusFrame.status.idstr;
+        param.since_id = @([statusFrame.status.idstr longLongValue]);
     }
-    
     // 2.发送请求
-    [XXRHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
+    [XXRStatusTool homeStatusWithParam:param success:^(XXRHomeStatusesResult *result) {
         // 取出所有的微博数据
         NSMutableArray *statusFrameArray = [NSMutableArray array];
-        // 将字典数组转换成模型数组
-        [XXRStatus setupObjectClassInArray:^NSDictionary *{
-            return @{
-                     @"pic_urls" : [XXRPhoto class]
-                     };
-        }];
-        NSArray *statusArray = [XXRStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
-        for (XXRStatus *status in statusArray) {
+        for (XXRStatus *status in result.statuses) {
             XXRStatusFrame *statusFrame = [[XXRStatusFrame alloc] init];
             [statusFrame setStatus:status];
             [statusFrameArray addObject:statusFrame];
         }
-
+        
         // 将新数据插在旧数据前面
         NSMutableArray *tmpArray = [NSMutableArray array];
         [tmpArray addObjectsFromArray:statusFrameArray];
         [tmpArray addObjectsFromArray:self.statusFrames];
         self.statusFrames = tmpArray;
-
+        
         // 刷新表格
         [self.tableView reloadData];
         
@@ -114,9 +107,10 @@
         // 结束刷新
         [self.tableView.header endRefreshing];
     } failure:^(NSError *error) {
-        
+        // 结束刷新
+        [self.tableView.header endRefreshing];
     }];
-
+    
 }
 
 /**
@@ -126,28 +120,21 @@
     
     // 刷新数据，向新浪请求加载更多数据
     // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [XXRAccountTool account].access_token;
-    params[@"count"] = @100;
+    XXRHomeStatusesParam *param = [[XXRHomeStatusesParam alloc] init];
+    param.access_token = [XXRAccountTool account].access_token;
+    param.count = @(10);
     if (self.statusFrames.count) {
         XXRStatusFrame *statusFrame = [self.statusFrames lastObject];
         // 加载ID比max_id小的微博
         long long maxId = [statusFrame.status.idstr longLongValue] - 1;
-        params[@"max_id"] = @(maxId);
+        param.max_id = @(maxId);
     }
     
     // 2.发送请求
-    [XXRHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
+    [XXRStatusTool homeStatusWithParam:param success:^(XXRHomeStatusesResult *result) {
         // 取出所有的微博数据
         NSMutableArray *statusFrameArray = [NSMutableArray array];
-        // 将字典数组转换成模型数组
-        [XXRStatus setupObjectClassInArray:^NSDictionary *{
-            return @{
-                     @"pic_urls" : [XXRPhoto class]
-                     };
-        }];
-        NSArray *statusArray = [XXRStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
-        for (XXRStatus *status in statusArray) {
+        for (XXRStatus *status in result.statuses) {
             XXRStatusFrame *statusFrame = [[XXRStatusFrame alloc] init];
             [statusFrame setStatus:status];
             [statusFrameArray addObject:statusFrame];
@@ -163,12 +150,11 @@
         [self showNewStatusCount:statusFrameArray.count];
         
         // 结束刷新
-        [self.tableView.header endRefreshing];
+        [self.tableView.footer endRefreshing];
     } failure:^(NSError *error) {
         // 结束刷新
-        [self.tableView.header endRefreshing];
+        [self.tableView.footer endRefreshing];
     }];
-    
 }
 
 - (void)setupUserData {
