@@ -59,6 +59,10 @@
     [self setupUserData];
 }
 
+- (void)refresh {
+    [self.tableView.header beginRefreshing];
+}
+
 - (void)setupRefreshView {
     // 1.下拉刷新
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
@@ -75,6 +79,10 @@
  *  加载最新微博数据
  */
 - (void)loadNewData {
+    
+    // 0.清除提醒数字
+    self.tabBarItem.badgeValue = nil;
+    
     // 刷新数据，向新浪请求加载最新数据
     // 1.封装请求参数
     XXRHomeStatusesParam *param = [XXRHomeStatusesParam param];

@@ -10,4 +10,5 @@
 
 @interface XXRHomeViewController : UITableViewController
 
+- (void)refresh;
 @end
