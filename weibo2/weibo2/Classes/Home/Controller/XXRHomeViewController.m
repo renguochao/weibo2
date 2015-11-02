@@ -22,10 +22,12 @@
 #import "XXRAccountTool.h"
 #import "XXRStatusTool.h"
 #import "XXRHttpTool.h"
+#import "XXRUserTool.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJExtension/MJExtension.h>
 #import <MJRefresh/MJRefresh.h>
+#import "XXRUserInfoParam.h"
 
 #define kXXRTitleButtonDownTag 0
 #define kXXRTitleButtonUpTag -1
@@ -75,8 +77,7 @@
 - (void)loadNewData {
     // 刷新数据，向新浪请求加载最新数据
     // 1.封装请求参数
-    XXRHomeStatusesParam *param = [[XXRHomeStatusesParam alloc] init];
-    param.access_token = [XXRAccountTool account].access_token;
+    XXRHomeStatusesParam *param = [XXRHomeStatusesParam param];
     param.count = @(5);
     if (self.statusFrames.count) {
         XXRStatusFrame *statusFrame = self.statusFrames[0];
@@ -120,8 +121,7 @@
     
     // 刷新数据，向新浪请求加载更多数据
     // 1.封装请求参数
-    XXRHomeStatusesParam *param = [[XXRHomeStatusesParam alloc] init];
-    param.access_token = [XXRAccountTool account].access_token;
+    XXRHomeStatusesParam *param = [XXRHomeStatusesParam param];
     param.count = @(10);
     if (self.statusFrames.count) {
         XXRStatusFrame *statusFrame = [self.statusFrames lastObject];
@@ -160,19 +160,16 @@
 - (void)setupUserData {
     
     // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [XXRAccountTool account].access_token;
-    params[@"uid"] = @([XXRAccountTool account].uid);
+    XXRUserInfoParam *param = [XXRUserInfoParam param];
+    param.uid = @([XXRAccountTool account].uid);
     
     // 2.发送请求
-    [XXRHttpTool getWithURL:@"https://api.weibo.com/2/users/show.json" params:params success:^(id json) {
-        // 字典转模型
-        XXRUser *user = [XXRUser objectWithKeyValues:json];
+    [XXRUserTool userInfoWithParam:param success:^(XXRUserInfoResult *result) {
         // 设置标题文字
-        [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+        [self.titleButton setTitle:result.name forState:UIControlStateNormal];
         // 保存昵称
         XXRAccount *account = [XXRAccountTool account];
-        account.name = user.name;
+        account.name = result.name;
         [XXRAccountTool saveAccount:account];
     } failure:^(NSError *error) {
         
