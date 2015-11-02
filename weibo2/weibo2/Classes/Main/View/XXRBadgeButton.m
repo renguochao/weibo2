@@ -26,7 +26,7 @@
     // TODO copy
     _badgeValue = [badgeValue copy];
     
-    if (self.badgeValue) {
+    if (self.badgeValue && [self.badgeValue intValue] != 0) {
         self.hidden = NO;
         
         // 设置文字

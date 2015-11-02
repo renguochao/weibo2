@@ -16,6 +16,8 @@
 
 #import "XXRTabBar.h"
 
+#import "XXRUserTool.h"
+#import "XXRAccountTool.h"
 #import "UIImage+XXR.h"
 #import "Common.h"
 
@@ -24,6 +26,11 @@
  *  自定义的tabbar
  */
 @property (nonatomic, weak) XXRTabBar *customTabBar; // 为什么使用weak？何时使用weak？
+@property (nonatomic, weak) XXRHomeViewController *home;
+@property (nonatomic, weak) XXRMessageViewController *message;
+@property (nonatomic, weak) XXRDiscoverViewController *discover;
+@property (nonatomic, weak) XXRMeViewController *me;
+
 @end
 
 @implementation XXRTabBarViewController
@@ -36,6 +43,31 @@
     
     // 初始化所有的子控制器
     [self setupAllChildViewControllers];
+    
+    // 定时检查未读数
+    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkUnreadCount) userInfo:nil repeats:YES];
+}
+
+- (void)checkUnreadCount {
+    
+    // 1.请求参数
+    XXRUserUnreadCountParam *param = [XXRUserUnreadCountParam param];
+    param.uid = @([XXRAccountTool account].uid);
+    
+    // 2.发送请求
+    [XXRUserTool userUnreadWithParam:param success:^(XXRUserUnreadCountResult *result) {
+        // 3.设置badgeValue
+        // 3.1.首页
+        self.home.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", result.status];
+        
+        // 3.2.消息
+        self.message.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", result.messageCount];
+        
+        // 3.3.我
+        self.me.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", result.follower];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -82,23 +114,23 @@
 - (void)setupAllChildViewControllers {
     // 1.首页
     XXRHomeViewController *home = [[XXRHomeViewController alloc] init];
-    home.tabBarItem.badgeValue = @"99";
     [self setupChildViewController:home title:@"首页" imageName:@"tabbar_home_os7" selectedImageName:@"tabbar_home_selected"];
+    self.home = home;
     
     // 2.消息
     XXRMessageViewController *message = [[XXRMessageViewController alloc] init];
-    message.tabBarItem.badgeValue = @"22";
     [self setupChildViewController:message title:@"消息" imageName:@"tabbar_message_center_os7" selectedImageName:@"tabbar_message_center_selected_os7"];
+    self.message = message;
     
     // 3.广场
     XXRDiscoverViewController *discover = [[XXRDiscoverViewController alloc] init];
-    discover.tabBarItem.badgeValue = @"1";
     [self setupChildViewController:discover title:@"广场" imageName:@"tabbar_discover_os7" selectedImageName:@"tabbar_discover_selected_os7"];
+    self.discover = discover;
     
     // 4.我
     XXRMeViewController *me = [[XXRMeViewController alloc] init];
     [self setupChildViewController:me title:@"我" imageName:@"tabbar_profile_os7" selectedImageName:@"tabbar_profile_selected_os7"];
-    
+    self.me = me;
 }
 
 /**
