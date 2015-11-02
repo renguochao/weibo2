@@ -18,6 +18,7 @@
 
 #import "MBProgressHUD+MJ.h"
 #import "Common.h"
+#import "XXRAuthParam.h"
 
 @interface XXROAuthController () <UIWebViewDelegate>
 
@@ -100,32 +101,29 @@
 - (void)accessTokenWithCode:(NSString *)code {
     
     // 1.设置参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"client_id"] = XXRAppKey;
-    params[@"client_secret"] = XXRAppSecret;
-    params[@"grant_type"] = @"authorization_code";
-    params[@"code"] = code;
-    params[@"redirect_uri"] = XXRRedirectURI;
+    XXRAuthParam *param = [XXRAuthParam param];
+    param.client_id = XXRAppKey;
+    param.client_secret = XXRAppSecret;
+    param.grant_type = @"authorization_code";
+    param.code = code;
+    param.redirect_uri = XXRRedirectURI;
     
     // 2.发送请求
-    [XXRHttpTool postWithURL:@"https://api.weibo.com/oauth2/access_token" params:params success:^(id json) {
-        // 3.先将字典转为模型
-        XXRAccount *account = [XXRAccount accountWithDict:json];
-        XXRLog(@"请求成功:%@", json);
-
-        // 4.存储模型信息:归档
+    [XXRAccountTool authWithParam:param success:^(XXRAuthResult *result) {
+        // 3.存储模型信息:归档
         // 获取沙盒Document路径
-        [XXRAccountTool saveAccount:account];
-
-        // 5.登录成功，会有两种跳转可能(首页、新特性)
+        [XXRAccountTool saveAccount:result];
+        
+        // 4.登录成功，会有两种跳转可能(首页、新特性)
         [XXRWeiboTool chooseRootViewController];
         
-        // 6.隐藏加载框
+        // 5.隐藏加载框
         [MBProgressHUD hideHUD];
-    } failure:^(NSError *error) {        
+    } failure:^(NSError *error) {
         XXRLog(@"请求失败:%@", error);
         [MBProgressHUD hideHUD];
     }];
+     
 }
 
 @end
