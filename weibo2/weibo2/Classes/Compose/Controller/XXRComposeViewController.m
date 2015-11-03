@@ -258,8 +258,7 @@
 - (void)sendWithoutImage {
     
     // 1.设置参数
-    XXRSendStatusParam *param = [[XXRSendStatusParam alloc] init];
-    param.access_token = [XXRAccountTool account].access_token;
+    XXRSendStatusParam *param = [XXRSendStatusParam param];
     param.status = self.textView.text;
     
     // 2.发送请求
