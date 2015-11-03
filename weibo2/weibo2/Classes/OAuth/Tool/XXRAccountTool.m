@@ -7,6 +7,9 @@
 //
 
 #import "XXRAccountTool.h"
+#import "XXRHttpTool.h"
+#import "MJExtension.h"
+#import "Common.h"
 
 #define XXRAccountFile [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"account.data"]
 
@@ -36,4 +39,18 @@
     }
 }
 
++ (void)authWithParam:(XXRAuthParam *)param success:(void (^)(XXRAuthResult *result))success failure:(void (^)(NSError *error))failure {
+    // 1.发送请求
+    [XXRHttpTool postWithURL:@"https://api.weibo.com/oauth2/access_token" params:param.keyValues success:^(id json) {
+        if (success) {
+            XXRAuthResult *result = [XXRAuthResult objectWithKeyValues:json];
+            success(result);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+
+}
 @end
