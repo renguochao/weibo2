@@ -20,6 +20,11 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
   - MJExtension (2.5.10)
   - MJRefresh (2.4.9)
   - SDWebImage (3.7.3):
@@ -28,12 +33,14 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.0)
+  - FMDB (~> 2.5)
   - MJExtension (~> 2.5.10)
   - MJRefresh (~> 2.4.9)
   - SDWebImage (~> 3.7.3)
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   MJExtension: 944fb5a12bceb9b866914527f66101566e66292b
   MJRefresh: be84acb912d0a66364f76a75426698a39528e2ed
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
