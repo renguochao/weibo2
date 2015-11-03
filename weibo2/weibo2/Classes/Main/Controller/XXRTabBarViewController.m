@@ -45,11 +45,14 @@
     [self setupAllChildViewControllers];
     
     // 定时检查未读数
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkUnreadCount) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkUnreadCount) userInfo:nil repeats:YES];
+    // 在子线程执行timer中的selector，如不加则默认在主线程中执行
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
 }
 
 - (void)checkUnreadCount {
-    
+//    NSLog(@"checkUnreadCount");
     // 1.请求参数
     XXRUserUnreadCountParam *param = [XXRUserUnreadCountParam param];
     param.uid = @([XXRAccountTool account].uid);
@@ -65,6 +68,10 @@
         
         // 3.3.我
         self.me.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", result.follower];
+        
+        // 4.设置图标右上角的数字
+//        [UIApplication sharedApplication].applicationIconBadgeNumber = result.count;
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:10];
     } failure:^(NSError *error) {
         
     }];
@@ -101,6 +108,10 @@
  */
 - (void)tabBar:(XXRTabBar *)tabBar didSelectButtonFrom:(int)from to:(int)to {
     self.selectedIndex = to;
+    
+    if (to == 0) { // 点击了首页
+        [self.home refresh];
+    }
 }
 
 /**

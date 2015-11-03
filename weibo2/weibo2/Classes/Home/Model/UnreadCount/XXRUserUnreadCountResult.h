@@ -79,4 +79,8 @@
  *  消息总数
  */
 - (int)messageCount;
+/**
+ *  总数
+ */
+- (int)count;
 @end
