@@ -18,12 +18,12 @@
  */
 @property (nonatomic, strong) NSArray *statuses;
 
-@property (nonatomic, assign) long long previous_cursor;
-@property (nonatomic, assign) long long next_cursor;
+@property (nonatomic, strong) NSNumber *previous_cursor;
+@property (nonatomic, strong) NSNumber *next_cursor;
 
 /**
  *  总数
  */
-@property (nonatomic, assign) long long total_number;
+@property (nonatomic, strong) NSNumber *total_number;
 
 @end
